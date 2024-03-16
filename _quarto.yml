@@ -1,11 +1,9 @@
 project:
   type: website
   output-dir: docs
-  
-# ~ additional metadata excluded for brevity ~
 
 website:
-  title: "nataliesmith.github.io"
+  title: "Natalie Smith"
   navbar:
     left:
       - href: index.qmd
@@ -17,6 +15,7 @@ format:
     theme: cosmo
     css: styles.css
     toc: true
+    page-layout: full
 
-editor: visual
+
 
