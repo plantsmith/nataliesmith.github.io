@@ -5,7 +5,7 @@ project:
 # ~ additional metadata excluded for brevity ~
 
 website:
-  title: "nataliesmith.github.io."
+  title: "nataliesmith.github.io"
   navbar:
     left:
       - href: index.qmd
