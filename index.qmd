@@ -5,7 +5,7 @@ toc: false
 about: 
   template: trestles
   image-shape: rectangle
-  image-width: 34em
+  image-width: 30em
   links:
     - text: LinkedIn
       href: https://www.linkedin.com/in/natsmith/
@@ -16,11 +16,7 @@ about:
 ---
 ## Hi, I'm Natalie:
 
-I am passionate about preserving and reviving biodiversity in urban settings through conservation planning, policy, and climate adaptation. While I started my career in music (Berklee College Of Music, 2013), I pivoted into ecology soon after. 
-
-With an interest in California native plants, I began volunteering with The Audobon Center and Tree People, assisting with restoration initiatives. To further her knowledge and expertise in the field, I received my Horticulture Certification in 2020 and my California Native Plant Landscaper Certificate (CNPLC) in 2021. Eventually, I worked as an affiliate ecologist at Great Ecology, where I assisted in monitoring plant establishment in wetland restoration efforts. Additionally, I served as the Operations Manager at Fig Earth Supply Nursery, spearheading the Native Plant Program to promote education and raise awareness for sustainable landscapes in California.
-
-At the Bren School, I am focusing on Conservation Planning, with an emphasis on strategic environmental communication and data science. 
+I'm fascinated by the intersection of the natural and built environment, with a deep interest in biodiversity, connectivity, climate adaptation, and data science. I'm currently working towards my master's degree at the Bren School of Environmental Science & Management (UCSB), specializing in Conservation Planning, with an emphasis on climate and data science. 
 
 ## Education: 
 
@@ -28,4 +24,3 @@ MESM, Environmental Science and Management (2025), Bren School of Environmental 
 
 BM, Songwriting, Berklee College of Music
 
-## Experience: 

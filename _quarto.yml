@@ -5,17 +5,23 @@ project:
 website:
   title: "Natalie Smith"
   navbar:
+    background: primary
     left:
       - href: index.qmd
         text: Home
-      - about.qmd
+      - href: about.qmd
+        text: About
+      - href: portfolio.qmd
+        text: Portfolio
+      - href: contact.qmd
+        text: Contact
+        
 
 format:
   html:
-    theme: cosmo
+    theme: Lux
     css: styles.css
     toc: true
     page-layout: full
 
-
-
+editor: visual
