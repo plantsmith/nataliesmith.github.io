@@ -14,13 +14,13 @@ about:
     - text: Email
       href: mailto:nasmith@bren.ucsb.edu
 ---
-## Hi, I'm Natalie:
+## About me
 
-I'm fascinated by the intersection of the natural and built environment, with a deep interest in biodiversity, connectivity, climate adaptation, and data science. I'm currently working towards my master's degree at the Bren School of Environmental Science & Management (UCSB), specializing in Conservation Planning, with an emphasis on climate and data science. 
+Hi! My name is Natalie. I'm fascinated by the intersection of the natural and built environment and am passionate about biodiversity, connectivity, climate adaptation, and data science. I am currently pursuing a master's degree at the Bren School of Environmental Science & Management (UCSB), where I specialize in Conservation Planning with an emphasis on climate and data science.
 
-## Education: 
+## Education
 
-MESM, Environmental Science and Management (2025), Bren School of Environmental Science & Management (UCSB)
+Master’s in Environmental Science and Management | 2025 | Bren School at UCSB
 
-BM, Songwriting, Berklee College of Music
+Bachlor's in Music | Berklee College of Music
 

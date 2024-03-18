@@ -2,7 +2,6 @@
 title: "About"
 ---
 
-## About
 
 I am passionate about preserving and reviving biodiversity in urban settings through conservation planning, policy, and climate adaptation. While I started my career in music (Berklee College Of Music, 2013), I pivoted into ecology soon after. 
 
@@ -11,3 +10,6 @@ With an interest in California native plants, I began volunteering with The Audo
 At the Bren School, I am focusing on Conservation Planning, with an emphasis on climate, strategic environmental communication and data science.
 
 In my free time I am a musician, gardener, and avid hiker.
+
+
+

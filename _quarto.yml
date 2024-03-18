@@ -13,8 +13,8 @@ website:
         text: About
       - href: portfolio.qmd
         text: Portfolio
-      - href: contact.qmd
-        text: Contact
+      # - href: contact.qmd
+      #   text: Contact
         
 
 format:
