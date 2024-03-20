@@ -2,7 +2,8 @@
   {
     "listing": "/portfolio.html",
     "items": [
-      "/portfolio/alice_analysis/index.html"
+      "/portfolio/alice_analysis/index.html",
+      "/portfolio/oil_spill_analysis/index.html"
     ]
   }
 ]

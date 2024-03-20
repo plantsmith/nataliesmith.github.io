@@ -1,19 +1,24 @@
 ---
 title: "Alice In Wonderland Text Analysis"
-description: "Cleaning and reclassifying geospatial vector and raster data to find optimal regions."
+description: "TBD"
 author:
   - name: Natalie Smith
+theme: Cerulean
 format:
   html:
-    code-fold: false
-draft: false # "true" will mean this is a draft post so it wont show up on my site
+    code-fold: true
+execute:
+  echo: true
+  message: false
+  warning: false
+draft: false # "true" will mean this is a draft post so it wont show up on site
 ---
 
 # Overview
 
 *Alice's Adventures in Wonderland*, better known as *Alice in Wonderland*, is a novel by Lewis Carroll that follows the journey of a young girl named Alice who falls down a rabbit hole into a whimsical world. The following text analysis includes a visualization of word counts for the most frequently used words in the text, as well as a sentiment analysis.
 
-![Alice encounters the Caterpillar, Wikipedia.](alice3.jpeg)
+![Alice encounters the Caterpillar, Wikipedia.](alice3.jpeg){fig-align="center" width="500"}
 
 # Import Libraries:
 

@@ -3,9 +3,10 @@ project:
   output-dir: docs
 
 website:
-  title: "Natalie Smith"
+  favicon: white_smile.png
+  title: "Natalie Smith" 
   navbar:
-    background: primary
+    background: white
     left:
       - href: index.qmd
         text: Home
@@ -15,7 +16,15 @@ website:
         text: Portfolio
       # - href: contact.qmd
       #   text: Contact
-        
+  page-footer:
+    background: light # or dark
+    left:
+      - "Copyright 2024, Natalie Smith"
+    # right:
+    #   - icon: github
+    #     href: https://github.com/samanthacsik
+    #   - icon: twitter
+    #     href: https://twitter.com/SamanthaCsik     
 
 format:
   html:
