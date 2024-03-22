@@ -1,8 +1,9 @@
 ---
-title: "Alice In Wonderland Text Analysis"
-description: "TBD"
-author:
-  - name: Natalie Smith
+title: "Analyzing Alice In Wonderland"
+description: "Examining word frequencies, sentiment trends, and chapter-wise patterns to gain insights into the narrative."
+author: Natalie Smith
+categories: [Text Analysis, Sentiment Analysis, Wrangling, Visualization]
+date: 02-20-2024
 theme: Cerulean
 format:
   html:
@@ -18,7 +19,7 @@ draft: false # "true" will mean this is a draft post so it wont show up on site
 
 *Alice's Adventures in Wonderland*, better known as *Alice in Wonderland*, is a novel by Lewis Carroll that follows the journey of a young girl named Alice who falls down a rabbit hole into a whimsical world. The following text analysis includes a visualization of word counts for the most frequently used words in the text, as well as a sentiment analysis.
 
-![Alice encounters the Caterpillar, Wikipedia.](alice3.jpeg){fig-align="center" width="500"}
+![Alice encounters the Caterpillar, Wikipedia.](alice3.jpeg){fig-align="center" width="374"}
 
 # Import Libraries:
 

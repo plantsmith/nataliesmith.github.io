@@ -72,9 +72,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-title','listing-author','listing-date','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-title","listing-author","listing-image","listing-description","listing-categories"],
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -140,7 +140,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(2)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(6)</span></div><div class="category" data-category="Choropleth">Choropleth <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Environmental Justice">Environmental Justice <span class="quarto-category-count">(2)</span></div><div class="category" data-category="G Function">G Function <span class="quarto-category-count">(1)</span></div><div class="category" data-category="GIS">GIS <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Interactive Map">Interactive Map <span class="quarto-category-count">(1)</span></div><div class="category" data-category="PCA">PCA <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Screeplot">Screeplot <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Seasonality">Seasonality <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Sentiment Analysis">Sentiment Analysis <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Text Analysis">Text Analysis <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Time Series">Time Series <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Urban">Urban <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Visualization">Visualization <span class="quarto-category-count">(5)</span></div><div class="category" data-category="Wrangling">Wrangling <span class="quarto-category-count">(5)</span></div></div></div>
 <!-- main -->
 <main class="content column-page-left" id="quarto-document-content">
 
@@ -167,27 +167,121 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1710896142508" data-listing-reading-time-sort="6">
-<a href="./portfolio/alice_analysis/index.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="0" data-categories="PCA,Screeplot,Wrangling,Visualization,Environmental Justice,Urban" data-listing-date-sort="1710486000000" data-listing-file-modified-sort="1711067761941" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9">
+<a href="./portfolio/pca/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="portfolio/alice_analysis/alice3.jpeg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img src="portfolio/pca/la.jpg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
-Alice In Wonderland Text Analysis
+Analyzing Socioeconomic and Environmental Factors in LA
 </h5>
-<div class="card-text listing-description">
-TBD
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('PCA'); return false;">
+PCA
 </div>
-<div class="card-attribution card-text-small start">
+<div class="listing-category" onclick="window.quartoListingCategory('Screeplot'); return false;">
+Screeplot
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Wrangling'); return false;">
+Wrangling
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Visualization'); return false;">
+Visualization
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Environmental Justice'); return false;">
+Environmental Justice
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Urban'); return false;">
+Urban
+</div>
+</div>
+<div class="card-text listing-description">
+Principal Components Analysis (PCA)
+</div>
+<div class="card-attribution card-text-small justify">
 <div class="listing-author">
 Natalie Smith
+</div>
+<div class="listing-date">
+Mar 15, 2024
 </div>
 </div>
 </div>
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1710783711119" data-listing-reading-time-sort="4">
+<div class="g-col-1" data-index="1" data-categories="GIS,Environmental Justice,Urban" data-listing-date-sort="1710226800000" data-listing-file-modified-sort="1711069032306" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4">
+<a href="./portfolio/gis_air_nyc/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img src="portfolio/gis_air_nyc/old_nyc.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+AirNYC: Mapping the Concrete Jungle
+</h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('GIS'); return false;">
+GIS
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Environmental Justice'); return false;">
+Environmental Justice
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Urban'); return false;">
+Urban
+</div>
+</div>
+<div class="card-text listing-description">
+Analyzing air pollution levels in New York City between 2020 and 2021 through census and zoning data.
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Natalie Smith
+</div>
+<div class="listing-date">
+Mar 12, 2024
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="2" data-categories="Text Analysis,Sentiment Analysis,Wrangling,Visualization" data-listing-date-sort="1708416000000" data-listing-file-modified-sort="1711059476899" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6">
+<a href="./portfolio/alice_analysis/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img src="portfolio/alice_analysis/alice3.jpeg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Analyzing Alice In Wonderland
+</h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Text Analysis'); return false;">
+Text Analysis
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Sentiment Analysis'); return false;">
+Sentiment Analysis
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Wrangling'); return false;">
+Wrangling
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Visualization'); return false;">
+Visualization
+</div>
+</div>
+<div class="card-text listing-description">
+Examining word frequencies, sentiment trends, and chapter-wise patterns to gain insights into the narrative.
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Natalie Smith
+</div>
+<div class="listing-date">
+Feb 20, 2024
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="3" data-categories="Interactive Map,G Function,Choropleth,Wrangling,Visualization" data-listing-date-sort="1708070400000" data-listing-file-modified-sort="1711059534038" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4">
 <a href="./portfolio/oil_spill_analysis/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img src="portfolio/oil_spill_analysis/oilspillca.jpg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
@@ -195,12 +289,100 @@ Natalie Smith
 <h5 class="no-anchor card-title listing-title">
 Inland Oil Spill Incidents in California
 </h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Interactive Map'); return false;">
+Interactive Map
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('G Function'); return false;">
+G Function
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Choropleth'); return false;">
+Choropleth
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Wrangling'); return false;">
+Wrangling
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Visualization'); return false;">
+Visualization
+</div>
+</div>
 <div class="card-text listing-description">
 Exploring oil spill incidents though interactive and static visualizations
 </div>
-<div class="card-attribution card-text-small start">
+<div class="card-attribution card-text-small justify">
 <div class="listing-author">
 Natalie Smith
+</div>
+<div class="listing-date">
+Feb 16, 2024
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="4" data-categories="Time Series,Seasonality,Wrangling,Visualization" data-listing-date-sort="1706601600000" data-listing-file-modified-sort="1711059312133" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6">
+<a href="./portfolio/salmon_passage/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img src="portfolio/salmon_passage/coho.jpeg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Willamette Falls Fish Passage Time Series Summary
+</h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Time Series'); return false;">
+Time Series
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Seasonality'); return false;">
+Seasonality
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Wrangling'); return false;">
+Wrangling
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Visualization'); return false;">
+Visualization
+</div>
+</div>
+<div class="card-text listing-description">
+Time series and seasonality analysis of adult passage for Coho, Jack Coho, and Steelhead Salmon from 2001 to 2010.
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Natalie Smith
+</div>
+<div class="listing-date">
+Jan 30, 2024
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="5" data-categories="Wrangling,Visualization" data-listing-date-sort="1706428800000" data-listing-file-modified-sort="1711059602620" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4">
+<a href="./portfolio/ramu/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img src="portfolio/ramu/yellow.jpeg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Sierra Amphibians
+</h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Wrangling'); return false;">
+Wrangling
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Visualization'); return false;">
+Visualization
+</div>
+</div>
+<div class="card-text listing-description">
+Exploring population dynamics and distribution patterns
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Natalie Smith
+</div>
+<div class="listing-date">
+Jan 28, 2024
 </div>
 </div>
 </div>
@@ -459,7 +641,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       &nbsp;
     </div>
     <div class="nav-footer-right">
-      &nbsp;
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+ Built with Quarto
+  </li>  
+</ul>
     </div>
   </div>
 </footer>

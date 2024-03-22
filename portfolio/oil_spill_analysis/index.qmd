@@ -2,6 +2,8 @@
 title: "Inland Oil Spill Incidents in California"
 description: "Exploring oil spill incidents though interactive and static visualizations"
 author: "Natalie Smith"
+categories: [Interactive Map, G Function, Choropleth, Wrangling, Visualization]
+date: 02-16-2024
 format:
   html:
     code-fold: true
