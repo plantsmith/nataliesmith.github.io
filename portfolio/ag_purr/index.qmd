@@ -2,7 +2,7 @@
 title: "Optimizing Crop Yield Prediction with Non-Linear Least Squares Analysis"
 description: "Utilizing non-linear least squares (NLS) analysis, facilitated by the Purrr package, to predict crop yields based on experimental data for three grains in Greece." 
 author: "Natalie Smith"
-categories: [NLS, Purr, Kable, Wrangling, Visualization, Predictive Modeling]
+categories: [NLS, Wrangling, Visualization, Predictive Modeling]
 date: 03-15-2024
 format:
   html:

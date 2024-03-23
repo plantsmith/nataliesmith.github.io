@@ -1,6 +1,6 @@
 ---
-title: "Sierra Amphibians"
-description: "Exploring population dynamics and distribution patterns"
+title: "Yellow-Legged Frogs: Population Dynamics Study"
+description: "Exploring population dynamics and distribution patterns of Mountain Yellow-legged frogs (Rana muscosa) in the southern Sierra Nevada region"
 author: "Natalie Smith"
 categories: [Wrangling, Visualization]
 date: 01-28-2024

@@ -8,7 +8,7 @@
 
 <meta name="author" content="Natalie Smith">
 <meta name="dcterms.date" content="2024-03-12">
-<meta name="description" content="Analyzing air pollution levels in New York City between 2020 and 2021 through census and zoning data.">
+<meta name="description" content="Analyzing air pollution levels in New York City between 2020 and 2021 with ArcGIS through census and zoning data.">
 
 <title>Natalie Smith - Air,NYC: Mapping the Concrete Jungle</title>
 <style>
@@ -111,7 +111,7 @@ ul.task-list li input[type="checkbox"] {
       <h1 class="title">Air,NYC: Mapping the Concrete Jungle</h1>
                   <div>
         <div class="description">
-          Analyzing air pollution levels in New York City between 2020 and 2021 through census and zoning data.
+          Analyzing air pollution levels in New York City between 2020 and 2021 with ArcGIS through census and zoning data.
         </div>
       </div>
                           <div class="quarto-categories">
@@ -210,13 +210,13 @@ ul.task-list li input[type="checkbox"] {
 <li>NYC Department of City Planning (DCP), Zoning Features (Polygon)</li>
 <li>NYC Department of City Planning (DCP), Census Tracts 2020 (Polygon)</li>
 </ul>
-<p>We utilized a variety of open-source raster and vector data sources, including the NYC Department of City Planning’s Borough, Zoning, and Census data, as well as the New York Community Air Survey Data. This air pollution survey data offers insights into citywide air pollution levels, with samples collected seasonally for two weeks, focusing on six contaminants. Monitor locations were strategically chosen to encompass diverse neighborhood characteristics and potential emission sources, including 15 environmental justice sites in low-income areas. For out analysis, we focused on the pollutants with annual averages: NO, NO2, PM2.5, and BC.</p>
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure">
 <p><img src="survey_install.png" class="img-fluid figure-img" width="500"></p>
 <figcaption class="figure-caption">Survey team member deploys a monitor in the field</figcaption>
 </figure>
 </div>
+<p>We utilized a variety of open-source raster and vector data sources, including the NYC Department of City’s Planning Borough, Zoning, and Census data, as well as the New York Community Air Survey Data. This air pollution survey data offers insights into citywide air pollution levels, with samples collected seasonally for two weeks, focusing on six contaminants. Monitor locations were strategically chosen to encompass diverse neighborhood characteristics and potential emission sources, including 15 environmental justice sites in low-income areas. For out analysis, we focused on the pollutants with annual averages: NO, NO2, PM2.5, and BC.</p>
 </section>
 <section id="conceptual-model-and-methods" class="level1">
 <h1>Conceptual Model and Methods:</h1>
@@ -237,7 +237,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="nyc-air-quality-census-tracts" class="level1">
 <h1>NYC Air Quality, Census Tracts:</h1>
 <p><img src="census.jpg" class="img-fluid" alt="Census Tracts">There are relative disparities in air quality across all boroughs based on census data. Values obtained from our model ranged from 4 to 12, which were subsequently categorized into three groups: low, medium, and high. These categories were symbolized on the map for visualization, with darker colors indicating higher pollution. Additionally, a mean value of 9.72 was calculated to facilitate comparison with our industrial districts.</p>
-<p>Additional analysis conducted by my colleague Sam Lance on industrial districts confirms our findings. Industrial areas show similar air quality trends to census tracts, with the most severe pollution centered around Manhattan and neighboring parts of Brooklyn and Queens. The majority mean air quality index in industrial zones is 10.91, surpassing the average for census tracts, highlighting the need for further investigation into industrial emissions’ impact on air quality.</p>
+<p>Additional analysis conducted by my colleague, Sam Lance, on industrial districts confirms our findings. Industrial areas show similar air quality trends to census tracts, with the most severe pollution centered around Manhattan and neighboring parts of Brooklyn and Queens. The majority mean air quality index in industrial zones is 10.91, surpassing the average for census tracts, highlighting the need for further investigation into industrial emissions’ impact on air quality.</p>
 </section>
 <section id="references" class="level1">
 <h1>References:</h1>

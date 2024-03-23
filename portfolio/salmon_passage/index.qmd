@@ -1,5 +1,5 @@
 ---
-title: "Willamette Falls Fish Passage Time Series Summary"
+title: "Understanding Adult Salmon Passage Dynamics at Willamette Falls"
 description: "Time series and seasonality analysis of adult passage for Coho, Jack Coho, and Steelhead Salmon from 2001 to 2010."
 author: "Natalie Smith"
 date: 01-30-2024

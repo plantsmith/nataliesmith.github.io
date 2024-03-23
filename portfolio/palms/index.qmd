@@ -1,8 +1,9 @@
 ---
 title: "Predicting Palmetto Species with Binary Logistic Regression"
-description: "Explores binary logistic regression for predicting the species of two dominant palmetto species. Compares two models and assesses their performance through repeated cross-validation."
+description: "Utilizing binary logistic regression to predict the species of two dominant palmetto species. Comparing two models and evaluating their performance using repeated cross-validation."
 author: "Natalie Smith"
 date: 3-7-24
+image: palms.jpg
 categories: [Binary Logistic Regression, Machine Learning, Predictive Modeling, Wrangling, Visualization]
 format: 
   html:
@@ -10,7 +11,7 @@ format:
     toc: true
     number-sections: true
     embed-resources: true
-theme: Litera
+theme: Lux
 editor: visual
 execute:
   echo: true
@@ -24,9 +25,7 @@ The palmetto data examines the survival, growth, and biomass estimates of two do
 
 We aim to create two models with different predictor variables and the better-performing model will be selected. We will then evaluate the success of the chosen model in correctly classifying a plant species.
 
-::: image-grid
 ![Left: Sabal etonia, Right: Serenoa repens](palms.jpg)
-:::
 
 # Exploratory Plots:
 

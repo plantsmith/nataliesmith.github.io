@@ -1,6 +1,6 @@
 ---
 title: "Analyzing Socioeconomic and Environmental Factors in LA"
-description: "Principal Components Analysis (PCA)"
+description: "Examining correlations between socioeconomic status, environmental factors, and historical redlining grades in Los Angeles using Principal Components Analysis (PCA)"
 author: "Natalie Smith"
 categories: [PCA, Screeplot, Wrangling, Visualization, Environmental Justice, Urban]
 date: 03-15-2024

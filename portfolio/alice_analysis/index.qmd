@@ -2,9 +2,9 @@
 title: "Analyzing Alice In Wonderland"
 description: "Examining word frequencies, sentiment trends, and chapter-wise patterns to gain insights into the narrative."
 author: Natalie Smith
-categories: [Text Analysis, Sentiment Analysis, Wrangling, Visualization]
 date: 02-20-2024
-theme: Cerulean
+categories: [Text Analysis, Sentiment Analysis, Wrangling, Visualization]
+image: queen_alice.jpeg
 format:
   html:
     code-fold: true
