@@ -14,24 +14,23 @@ about:
     - text: Email
       href: mailto:nasmith@bren.ucsb.edu
 ---
+
 ## About me
 
 Hi! My name is Natalie. I'm fascinated by the intersection of the natural and built environment and am passionate about biodiversity, connectivity, climate adaptation, and data science. I am currently pursuing a master's degree at the Bren School of Environmental Science & Management (UCSB), where I specialize in Conservation Planning with an emphasis on climate and data science.
 
 ## Education
 
-Master’s in Environmental Science and Management | 2025 | Bren School Of Environmental Science & Management at UCSB
+Master of Environmental Science and Management \| 2025 \| Bren School Of Environmental Science & Management at UCSB
 
-Bachlor's in Music | Berklee College of Music
+Bachelor of Music \| Berklee College of Music
 
-## Certifications 
+## Certifications
 
-Leed Green Associate | 2023
+Leed Green Associate \| 2023
 
-Wildfire Defense Professional (USGBC-LA) | 2022
+Wildfire Defense Professional (USGBC-LA) \| 2022
 
-California Native Plant Landscaper Certificate (CNPLC) | 2021
+California Native Plant Landscaper Certificate (CNPLC) \| 2021
 
-Horticulture (UCLA Extension) | 2020
-
-
+Horticulture (UCLA Extension) \| 2020
