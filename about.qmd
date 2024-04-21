@@ -1,14 +1,37 @@
 ---
 title: "About"
 ---
+As an individual with a diverse background spanning music and ecology, I bring a unique blend of creativity and analytical thinking to my work in environmental science and management.
 
-I am passionate about preserving and reviving biodiversity in urban settings through conservation planning, policy, and climate adaptation. While I started my career in music (Berklee College Of Music, 2013), I pivoted into ecology soon after.
+While I started my career in music (Berklee College Of Music, 2013), I pivoted into ecology soon after. With an interest in California native plants, I began volunteering with The Audobon Center and Tree People, assisting with restoration initiatives. To further my knowledge and expertise in the field, I received my Horticulture Certification from UCLA Extension in 2020 and my California Native Plant Landscaper Certificate (CNPLC) in 2021. Eventually, I worked as an affiliate ecologist at Great Ecology, assisting in monitoring plant establishment in wetland restoration efforts. Additionally, I served as the Operations Manager at Fig Earth Supply Nursery, spearheading the Native Plant Program to promote education and raise awareness for sustainable landscapes in California.
 
-With an interest in California native plants, I began volunteering with The Audobon Center and Tree People, assisting with restoration initiatives. To further my knowledge and expertise in the field, I received my Horticulture Certification from UCLA extension in 2020 and my California Native Plant Landscaper Certificate (CNPLC) in 2021. Eventually, I worked as an affiliate ecologist at Great Ecology, where I assisted in monitoring plant establishment in wetland restoration efforts. Additionally, I served as the Operations Manager at Fig Earth Supply Nursery, spearheading the Native Plant Program to promote education and raise awareness for sustainable landscapes in California.
+I am currently pursuing my master's degree at the Bren School, with a focus on Conservation Planning. I have a strong interest in climate adaptation, strategic environmental communication, and data science. I'm particularly focused on sharpening my technical skills, specifically in GIS and data analysis, to address the most pressing environmental challenges.
 
-At the Bren School, I am focusing on Conservation Planning, with an emphasis on climate, strategic environmental communication and data science.
+In my free time, you'll find me tending to my garden, exploring parks, or taking botany walks. I also enjoy listening to old records, watching movies, and exploring art museums.
 
-During my free time, I enjoy gardening, hiking, camping, and botany walks. I also like listening to old jazz records, watching movies, and exploring art museums.
+::: panel-tabset
+### Education
+
+Master of Environmental Science and Management \| 2025 \| Bren School Of Environmental Science & Management at UCSB
+
+Bachelor of Music \| Berklee College of Music
+
+### Certifications
+
+Leed Green Associate \| 2023
+
+Wildfire Defense Professional (USGBC-LA) \| 2022
+
+California Native Plant Landscaper Certificate (CNPLC) \| 2021
+
+Horticulture (UCLA Extension) \| 2020
+
+### Conferences
+
+National Adaptation Forum \| 2024
+
+California Native Plant Society Conference \| 2021
+:::
 
 ::: image-grid
 ![Hiking in the Channel Islands](images/natalie_hikes.jpeg){width="400"}. ![California Poppies](images/poppies.jpg){width="400" height="500"}

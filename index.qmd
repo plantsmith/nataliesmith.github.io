@@ -17,20 +17,18 @@ about:
 
 ## About me
 
-Hi! My name is Natalie. I'm fascinated by the intersection of the natural and built environment and am passionate about biodiversity, connectivity, climate adaptation, and data science. I am currently pursuing a master's degree at the Bren School of Environmental Science & Management (UCSB), where I specialize in Conservation Planning with an emphasis on climate and data science.
+Hi, I'm Natalie. I'm fascinated by the intersection of the natural and built environment. I am currently pursuing a master's degree at the Bren School of Environmental Science & Management (UCSB), where I'm focusing on sustainable landscapes and addressing climate challenges through strategic planning and data-driven approaches.
 
-## Education
+## Professional Interests
 
-Master of Environmental Science and Management \| 2025 \| Bren School Of Environmental Science & Management at UCSB
+Climate Adaptation \| Conservation Planning \| Data Science \| Biodiversity \| Resilient Landscapes \| Built Ecology \| Connectivity
 
-Bachelor of Music \| Berklee College of Music
+## Skillsets
 
-## Certifications
+Data Science \| ArcGIS \| R \| Climate Adaptation \| Conservation Planning \| Plant Identification \| Horticulture \| Project Management
 
-Leed Green Associate \| 2023
+## Current Projects
 
-Wildfire Defense Professional (USGBC-LA) \| 2022
+Mapping Connectivity in the Central Coast Region, Coming Soon
 
-California Native Plant Landscaper Certificate (CNPLC) \| 2021
-
-Horticulture (UCLA Extension) \| 2020
+[Mapping Heat-Risk Inequalities in Los Angeles County](https://plantsmith.shinyapps.io/heat_risk_inequality/)
