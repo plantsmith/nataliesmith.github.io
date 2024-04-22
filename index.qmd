@@ -17,18 +17,20 @@ about:
 
 ## About me
 
-Hi, I'm Natalie. I'm fascinated by the intersection of the natural and built environment. I am currently pursuing a master's degree at the Bren School of Environmental Science & Management (UCSB), where I'm focusing on sustainable landscapes and addressing climate challenges through strategic planning and data-driven approaches.
-
-## Professional Interests
-
-Climate Adaptation \| Conservation Planning \| Data Science \| Biodiversity \| Resilient Landscapes \| Built Ecology \| Connectivity
-
-## Skillsets
-
-Data Science \| ArcGIS \| R \| Climate Adaptation \| Conservation Planning \| Plant Identification \| Horticulture \| Project Management
+Hi, I'm Natalie. I am currently pursuing a master's degree at the Bren School of Environmental Science & Management (UCSB), where I'm focusing on addressing climate challenges through strategic planning and data-driven approaches.
 
 ## Current Projects
 
 Mapping Connectivity in the Central Coast Region, Coming Soon
 
 [Mapping Heat-Risk Inequalities in Los Angeles County](https://plantsmith.shinyapps.io/heat_risk_inequality/)
+
+## Professional Interests
+
+Climate Adaptation \| Conservation Planning \| Data Science \| Urban Biodiversity \| Resilient Landscapes \| Built Ecology \| Connectivity
+
+## Skillsets
+
+Data Science \| ArcGIS \| R Programming Language\| Excel \| Plant Identification \| Horticulture \| Project Management
+
+## 
