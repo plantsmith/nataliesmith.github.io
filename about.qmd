@@ -32,7 +32,7 @@ While I started my career in music (Berklee College Of Music, 2013), I pivoted i
 
 I am currently pursuing my master's degree at the Bren School, with a focus on Conservation Planning. I am fascinated by the intersection of the built and natural environment, and have a strong interest in climate adaptation, natural resource management, urban systems. I'm particularly focused on sharpening my technical skills, specifically in GIS and data analysis, to address the most pressing environmental challenges.
 
-In my free time, you can find me tending to my garden or on a hike looking for pla. I also enjoy listing to old records and a good cup of coffee.
+In my free time, you can find me tending to my garden or on a hike. I also enjoy listing to old records and a good cup of coffee.
 
 ::: image-grid
 ![Hiking in the Channel Islands](images/natalie_hikes.jpeg){width="400"}. ![California Poppies](images/poppies.jpg){width="400" height="500"}
