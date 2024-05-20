@@ -1,13 +1,6 @@
 ---
 title: "About"
 ---
-As an individual with a diverse background spanning music and ecology, I bring a unique blend of creativity and analytical thinking to my work in environmental science and management.
-
-While I started my career in music (Berklee College Of Music, 2013), I pivoted into ecology soon after. With an interest in California native plants, I began volunteering with The Audobon Center and Tree People, assisting with restoration initiatives. To further my knowledge and expertise in the field, I received my Horticulture Certification from UCLA Extension in 2020 and my California Native Plant Landscaper Certificate (CNPLC) in 2021. Eventually, I worked as an affiliate ecologist at Great Ecology, assisting in monitoring plant establishment in wetland restoration efforts. Additionally, I served as the Operations Manager at Fig Earth Supply Nursery, spearheading the Native Plant Program to promote education and raise awareness for sustainable landscapes in California.
-
-I am currently pursuing my master's degree at the Bren School, with a focus on Conservation Planning. I am fascinated by the intersection of the built and natural environment, and have a strong interest in climate adaptation, strategic environmental communication, and data science. I'm particularly focused on sharpening my technical skills, specifically in GIS and data analysis, to address the most pressing environmental challenges.
-
-In my free time, you'll find me tending to my garden, exploring parks, or taking botany walks. I also enjoy listening to old records, watching movies, and exploring museums.
 
 ::: panel-tabset
 ### Education
@@ -33,6 +26,14 @@ National Adaptation Forum \| 2024
 California Native Plant Society Conference \| 2021
 :::
 
+With a background in music, art, and ecology, I bring a unique blend of creativity and analytical thinking to my work in environmental science and management.
+
+While I started my career in music (Berklee College Of Music, 2013), I pivoted into ecology soon after. With an interest in California native plants, I began volunteering with The Audobon Center and Tree People, assisting with restoration initiatives. To further my knowledge and expertise in the field, I received my Horticulture Certification from UCLA Extension in 2020 and my California Native Plant Landscaper Certificate (CNPLC) in 2021. Eventually, I worked as an affiliate ecologist at Great Ecology, assisting in monitoring plant establishment in wetland restoration efforts. Additionally, I served as the Operations Manager at Fig Earth Supply Nursery, spearheading the Native Plant Program to promote education and raise awareness for sustainable landscapes in California.
+
+I am currently pursuing my master's degree at the Bren School, with a focus on Conservation Planning. I am fascinated by the intersection of the built and natural environment, and have a strong interest in climate adaptation, natural resource management, urban systems. I'm particularly focused on sharpening my technical skills, specifically in GIS and data analysis, to address the most pressing environmental challenges.
+
+In my free time, you can find me tending to my garden or on a hike looking for plants. I also enjoy listing to old records and a good cup of coffee.
+
 ::: image-grid
 ![Hiking in the Channel Islands](images/natalie_hikes.jpeg){width="400"}. ![California Poppies](images/poppies.jpg){width="400" height="500"}
 :::
@@ -40,3 +41,4 @@ California Native Plant Society Conference \| 2021
 ::: image-grid
 ![Salvia](images/salvia.jpeg){width="400" height="500"}. ![Eriogonum fasciculatum](images/buckwheat.jpg){width="400" height="500"}
 :::
+
