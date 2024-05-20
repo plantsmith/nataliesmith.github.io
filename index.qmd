@@ -21,9 +21,9 @@ Hi, I'm Natalie. I am currently pursuing a master's degree at the Bren School of
 
 ## Current Projects
 
-Mapping Connectivity in the Central Coast Region, Coming Soon
-
 [Mapping Heat-Risk Inequalities in Los Angeles County](https://plantsmith.shinyapps.io/heat_risk_inequality/)
+
+Mapping Connectivity in the Central Coast Region, Coming Soon
 
 ## Professional Interests
 
