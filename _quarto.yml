@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  favicon: white_smile.png
+  favicon: black_smile.png
   title: "Natalie Smith" 
   navbar:
     background: white
