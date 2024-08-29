@@ -17,7 +17,7 @@ about:
 
 ## About me
 
-Hi, I'm Natalie. I am currently pursuing a master's degree at the Bren School of Environmental Science & Management (UCSB), where I'm focusing on addressing environmental challenges through strategic planning and data-driven approaches.
+Hi, I'm Natalie. I am currently pursuing a master's degree at the Bren School of Environmental Science & Management (UCSB), where I'm focusing on addressing climate challenges through strategic planning and data-driven approaches.
 
 ## Current Projects
 
@@ -27,10 +27,10 @@ Evaluating Ecological Conservation Gaps Across a Proposed Sentinel Landscape, Co
 
 ## Professional Interests
 
-Conservation Planning \| Natural Resources \| Climate Adaptation \| GIS \| Data Science \| Urban Biodiversity \| Resilient Landscapes \| Built Ecology \| Connectivity
+Climate Adaptation \| Environmental Planning \| Environmental Justice \| GIS \| Data Science \| Urban Biodiversity \| Resilient Landscapes \| Built Ecology \| Connectivity
 
 ## Skill Sets
 
-Plant Identification \| Data Science \| ArcGIS \| R Programming Language \| Excel \| Horticulture \| Project Management
+Ecology \| Data Science \| ArcGIS \| R Programming Language \| Excel \| Native Plant ID \| Project Management \| Communication
 
 ## 
