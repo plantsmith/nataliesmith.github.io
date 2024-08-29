@@ -27,10 +27,10 @@ Evaluating Ecological Conservation Gaps Across a Proposed Sentinel Landscape, Co
 
 ## Professional Interests
 
-Climate Adaptation \| Environmental Planning \| Environmental Justice \| GIS \| Data Science \| Urban Biodiversity \| Resilient Landscapes \| Built Ecology \| Connectivity
+Climate Adaptation \| Resilient Landscapes \| Environmental Planning \| Environmental Justice \| Nature Based Solutions \| Sustainability \| Urban Biodiversity \| Built Ecology \| Connectivity
 
 ## Skill Sets
 
-Ecology \| Data Science \| ArcGIS \| R Programming Language \| Excel \| Native Plant ID \| Project Management \| Communication
+Ecology \| Data Science \| GIS\| ArcGIS \| R Programming Language \| Excel \| Native Plant ID \| Project Management \| Communication
 
 ## 
