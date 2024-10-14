@@ -2,6 +2,8 @@
   {
     "listing": "/portfolio.html",
     "items": [
+      "/portfolio/toh_restoration/index.html",
+      "/portfolio/hotspot_analysis/index.html",
       "/portfolio/pca/index.html",
       "/portfolio/ag_purr/index.html",
       "/portfolio/gis_air_nyc/index.html",

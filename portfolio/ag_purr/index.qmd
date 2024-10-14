@@ -349,6 +349,6 @@ combinedplot
 
 Results: As depicted in Figure 2, late-year biomass yield for every crop species is highest in the high input scenario, suggesting that increased irrigation and fertilizer lead to enhanced crop yields.
 
-# Reference: 
+# Reference:
 
 Archontoulis, S.V. and Miguez, F.E. (2015), Nonlinear Regression Models and Applications in Agricultural Research. Agronomy Journal, 107: 786-798.
