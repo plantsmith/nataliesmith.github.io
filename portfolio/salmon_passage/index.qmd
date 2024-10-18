@@ -1,6 +1,6 @@
 ---
-title: "Understanding Adult Salmon Passage Dynamics at Willamette Falls"
-description: "Time series and seasonality analysis of adult passage for Coho, Jack Coho, and Steelhead Salmon from 2001 to 2010."
+title: "Understanding Adult Fish Passage Dynamics at Willamette Falls"
+description: "Time series and seasonality analysis of adult passage for Coho, Jack Coho, and Steelhead from 2001 to 2010."
 author: "Natalie Smith"
 date: 01-30-2024
 categories: [Time Series, Seasonality, Wrangling, Visualization]
@@ -16,7 +16,7 @@ draft: false # "true" will mean this is a draft post so it won't show up on my s
 
 # Overview
 
-In my analysis, I delved into the adult passage of Coho, Coho Jack, and Steelhead salmon from 2001-2010 at the Willamette Falls fish ladder on the Willamette River (Oregon) using data from Columbia River DART (Data Access in Real Time). My focus was on identifying patterns and trends in salmon passage based on time and season. Additionally, I aimed to determine the annual counts for each species. .
+In my analysis, I delved into the adult passage of Coho, Coho Jack, and Steelhead from 2001-2010 at the Willamette Falls fish ladder on the Willamette River (Oregon) using data from Columbia River DART (Data Access in Real Time). My focus was on identifying patterns and trends in fish passage based on time and season. Additionally, I aimed to determine the annual counts for each species. .
 
 ![Adult Male Coho Salmon, BLM](coho.jpeg)
 
@@ -74,7 +74,7 @@ ggplot(wf_clean, aes(x = date, y = number_of_salmon, color = species)) +
 
 ### Major patterns and notable trends:
 
-Coho species exhibit a left-skewed pattern, with passage counts consistently increasing since 2009. Jack Coho species display a more uniform distribution, reaching peak passage counts in 2009. Steelhead salmon demonstrate a consistent seasonal pattern throughout the analyzed time period.
+Coho species exhibit a left-skewed pattern, with passage counts consistently increasing since 2009. Jack Coho species display a more uniform distribution, reaching peak passage counts in 2009. Steelhead demonstrate a consistent seasonal pattern throughout the analyzed time period.
 
 # Part 2: Seasonplots
 
@@ -122,9 +122,9 @@ wf_weekly %>% gg_season(y=monthly_count, pal = viridis::viridis(8))+
 
 -   Coho and Jack Coho exhibit a similar seasonal pattern, peaking from September to November. Coho passage has increased in recent years, while Jack Coho passage has declined.
 
--   Steelhead salmon show a wider seasonal passage window, spanning from February to July, with a peak typically observed from May to July. The timing of peak passage varies across years.
+-   Steelhead show a wider seasonal passage window, spanning from February to July, with a peak typically observed from May to July. The timing of peak passage varies across years.
 
--   Late April and May mark the peak return period for Steelhead salmon, although total returns during this period have declined over the years. This suggests a potential shift in the timing of returns, which is more evident when analyzing the data on a weekly basis.
+-   Late April and May mark the peak return period for Steelhead, although total returns during this period have declined over the years. This suggests a potential shift in the timing of returns, which is more evident when analyzing the data on a weekly basis.
 
 # Part 3: Annual Counts by Species
 

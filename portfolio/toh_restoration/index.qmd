@@ -1,6 +1,6 @@
 ---
 title: "Ailanthus altissima: Strategies for Control and Management in California"
-description: "GIS-based spatial analysis study using MaxEnt predictive modeling incorporating climate variables and species occurrence data" 
+description: "GIS-based spatial analysis study using MaxEnt predictive modeling, incorporating climate variables and species occurrence data" 
 author: "Natalie Smith and Priscilla Ta"
 categories: [GIS, Spatial Analysis, Predictive Modeling]
 date: 09-25-2024
