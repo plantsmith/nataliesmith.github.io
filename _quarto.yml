@@ -14,8 +14,8 @@ website:
         text: About
       - href: portfolio.qmd
         text: Portfolio
-      # - href: music.qmd
-      #   text: Music
+      - href: music.qmd
+        text: Music
       # - href: contact.qmd
       #   text: Contact
   page-footer:

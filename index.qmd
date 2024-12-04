@@ -17,20 +17,20 @@ about:
 
 ## About me
 
-Hi, I'm Natalie. I am currently pursuing a master's degree at the Bren School of Environmental Science & Management (UCSB), where I'm focusing on addressing climate challenges through strategic planning and data-driven approaches.
+Hi, I'm Natalie. I'm currently pursuing a master's degree at the Bren School of Environmental Science & Management (UCSB), where I'm focusing on tackling climate challenges through strategic planning and data-driven solutions. With a background in music, art, and ecology, I strive to bring creative and analytical thinking to promote sustainability and resilience in both natural and urban environments.
 
 ## Current Projects
 
-[Mapping Heat-Risk Inequalities in Los Angeles County](https://plantsmith.shinyapps.io/heat_risk_inequality/)
+[Evaluating Ecological Conservation Gaps Across a Proposed Sentinel Landscape](https://bren.ucsb.edu/projects/evaluating-ecological-conservation-gaps-across-proposed-sentinel-landscape)
 
-Evaluating Ecological Conservation Gaps Across a Proposed Sentinel Landscape, Coming Soon
+[Mapping Heat-Risk Inequalities in Los Angeles County](https://plantsmith.shinyapps.io/heat_risk_inequality/)
 
 ## Professional Interests
 
-Climate Adaptation \| Resilient Landscapes \| Environmental Planning \| Environmental Justice \| Nature Based Solutions \| Sustainability \| Urban Biodiversity \| Built Ecology \| Connectivity
+Climate Adaptation \| Urban Biodiversity \| Resilient Landscapes \| Environmental Planning \| Environmental Justice \| Nature Based Solutions \| Sustainability \| Built Ecology \| Connectivity
 
 ## Skill Sets
 
-Ecology \| Data Science \| GIS \| R Programming Language \| Excel \| Native Plant ID \| Project Management \| Communication
+Ecology \| Data Science \| GIS \| R Programming Language \| Excel \| Native Plant ID \| Project Management \| Communication \| Stakeholder Engagement
 
 ## 

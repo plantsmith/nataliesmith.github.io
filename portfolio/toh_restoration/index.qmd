@@ -4,6 +4,7 @@ description: "GIS-based spatial analysis study using MaxEnt predictive modeling,
 author: "Natalie Smith and Priscilla Ta"
 categories: [GIS, Spatial Analysis, Predictive Modeling]
 date: 09-25-2024
+image: new_toh.jpg
 format:
   html:
     code-fold: true
