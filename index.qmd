@@ -21,7 +21,7 @@ Hi, I'm Natalie. I'm currently pursuing a master's degree at the Bren School of 
 
 ## Current Projects
 
-[Evaluating Ecological Conservation Gaps Across a Proposed Sentinel Landscape](https://bren.ucsb.edu/projects/evaluating-ecological-conservation-gaps-across-proposed-sentinel-landscape)
+[Evaluating Ecological Conservation Gaps Across a Proposed Sentinel Landscape (Connectivity Analysis)](https://bren.ucsb.edu/projects/evaluating-ecological-conservation-gaps-across-proposed-sentinel-landscape)
 
 [Mapping Heat-Risk Inequalities in Los Angeles County](https://plantsmith.shinyapps.io/heat_risk_inequality/)
 

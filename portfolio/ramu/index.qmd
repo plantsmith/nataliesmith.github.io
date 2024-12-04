@@ -11,7 +11,7 @@ execute:
   echo: true
   message: false
   warning: false
-draft: false # "true" will mean this is a draft post so it wont show up on my site
+draft: true # "true" will mean this is a draft post so it wont show up on my site
 ---
 
 # Overview:

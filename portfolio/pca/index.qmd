@@ -18,7 +18,7 @@ draft: false # "true" will mean this is a draft post so it wont show up on my si
 
 Between 1935 and 1940, the HOLC created color-coded maps evaluating neighborhoods' mortgage security based on criteria such as housing quality, property values, and residents' racial and ethnic backgrounds. The maps categorized areas into four types: "Type A" (green) neighborhoods were the most desirable, "Type B" (blue) were still desirable, "Type C" (yellow) were declining, and "Type D" (red) were the riskiest, often older districts in city centers and predominantly Black.
 
-For this assignment, we examined correlations between Census data, Tree Canopy Coverage, Heat Risk, and Redlining Grades in Los Angeles, CA. Utilizing the data that was previously wrangled for our "[Mapping Heat Risk Inequality](https://github.com/plantsmith/shiny_redliningrisk_oh_ns)" Shiny app (Natalie Smith and Olivia Hemond), we delved into these relationships for analysis.
+For this assignment, we examined correlations between Census data, Tree Canopy Coverage, Heat Risk, and Redlining Grades in Los Angeles, CA. Utilizing the data that was previously wrangled for our "[Mapping Heat Risk Inequality](https://plantsmith.shinyapps.io/heat_risk_inequality/)" Shiny app (Natalie Smith and Olivia Hemond), we delved into these relationships for analysis.
 
 ![Los Angeles, RDNE Photo Archive](la.jpg){width="1201"}
 

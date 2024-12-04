@@ -11,16 +11,18 @@ execute:
   echo: true
   message: false
   warning: false
-draft: true # "true" will mean this is a draft post so it wont show up on my site
+draft: false # "true" will mean this is a draft post so it wont show up on my site
 ---
 
 # Introduction
 
-Coastal wetlands are essential in providing protection against storm surges and mitigating the effects of sea-level rise. These ecosystems function as natural sponges, absorbing wave energy and significantly reducing flood risk. This report will evaluate the economic value of restoring 60 hectares of salt marsh in Huntington Beach, California, employing a benefits transfer analysis.
+Coastal wetlands are essential in providing protection against storm surges and mitigating the effects of sea-level rise. These ecosystems function as natural sponges, absorbing wave energy and significantly reducing flood risk. This report evaluates the economic value of restoring 60 hectares of salt marsh in Huntington Beach, California, employing a benefits transfer analysis.
 
-Data from Bayraktov et al. (2015) will be incorporated, which includes a meta-analysis of the restoration costs associated with coastal wetlands. Furthermore, insights from Costanza et al. (2021) will be utilized, as this research estimates the storm protection benefits of wetlands through calculations of avoided damages.
+![Photo from Huntington Beach Wetlands Conservancy](wetland.jpg)
 
 # Restoration Costs
+
+Data from Bayraktov et al. (2015) was incorporated, which included a meta-analysis of the restoration costs associated with coastal wetlands. Furthermore, insights from Costanza et al. (2021) were utilized, as this research estimated the storm protection benefits of wetlands through calculations of avoided damages.
 
 ```{r}
 #load libraries
@@ -50,9 +52,11 @@ wetland_df <- wetland_df %>%
 #   select(observation, area_ha, total_cost_2010, cost_per_ha)
 ```
 
-The selected study (observation ID: 126) reported a restoration cost of \$213,689.9 per hectare for a 44.5-hectare salt marsh. Extrapolating this to 60 hectares yields an estimated total cost of \$12,821,394.
+Drawing from the insights provided by Bayraktov et al. (2015) and Costanza et al. (2021), and exploring the data, a comparable study area (observation ID: 126) was selected as a proxy for our location. This study reported a restoration cost of \$213,689.90 per hectare for a 44.5-hectare salt marsh. Using this as a basis for analysis, the estimated total cost for restoring a 60-hectare area was calculated to be \$12,821,394.
 
-# Exploring Marginal Costs
+## Exploring Marginal Costs
+
+To determine the marginal cost of restoring each additional hectare, I analyzed the data using a scatter plot with hectares on the y-axis and total restoration costs on the x-axis for projects in the USA.
 
 ```{r, fig.cap="Figure 1: Scatterplot illustrating the relationship between total restoration costs and salt marsh area restored, using log-transformed variables."}
 
@@ -74,9 +78,9 @@ ggplot(wetland_usa, aes(x = total_cost_2010, y =area_ha)) +
 
 The scatterplot, which features log-transformed variables to better visualize the trends, illustrates a positive trend between total restoration costs and the area of saltmarsh restored, though the relationship isn’t strictly linear. The costs fluctuate suggesting that the marginal cost per additional hectare isn't constant.
 
-# Regression Analysis
+## Regression Analysis
 
-A regression model was used to refine the cost estimate for 60 hectares.
+Based on the aformentioned studies, a regression model (*total_cost_2010 = a + b\*area_ha + error)* was used to refine the cost estimate for 60 hectares.
 
 ```{r}
 # run regression
@@ -92,9 +96,9 @@ hb_cost <- predict(lm_cost, data.frame(area_ha = 60))
 # hb_cost
 ```
 
-The regression model estimates the restoration cost for 60 hectares at \$3,077,755. Incorporating variables like ecological complexity could improve cost accuracy.
+The regression model estimates the restoration cost for 60 hectares at \$3,077,755. However, ncorporating variables like ecological complexity could improve cost accuracy.
 
-#Storm Protection Benefits
+# Storm Protection Benefits
 
 Costanza et al. (2021) analyzed 1288 coastal storms globally to calculate the storm protection benefits from wetlands. The authors obtained the following regression estimates:
 
@@ -105,9 +109,9 @@ $$
 
 The coefficient for ln(wetlands) indicates that a 1% increase in wetland area correlates with a 0.236% decrease in damages relative to GDP, emphasizing the protective benefits of larger wetlands.
 
-# Avoiding Estimated Damages
+## Avoiding Estimated Damages
 
-Restoring 60 additional hectares of wetlands reduces economic damages during storms like Hurricane Hilary. Using current wetland area of 72 hectares, additional wetland area of 60 hectares, and total damages of \$18 million, the elasticity of damages with respect to wetland area wetlands = -0.236 predicts avoided damages of approximately \$2.4 million.
+An estimate of avoided damages was calculated using a benefits transfer approach. By applying the elasticity of damages with respect to wetland area (-0.236), which was derived from existing studies, we can estimate the impact of restoring additional wetlands. Given the current wetland area of 72 hectares and the potential expansion by 60 hectares, with total storm damages amounting to \$18 million, the benefits transfer method predicts that restoring 60 hectares of wetlands would avoid approximately \$2.4 million in economic damages during storms like Hurricane Hilary. 
 
 ```{r}
 
@@ -142,6 +146,3 @@ avoided_damage #million
 
 ```
 
-# Results
-
-Restoring 60 hectares of wetlands reduces damages by approximately \$2,399,176 during storm events like Hurricane Hilary. This illustrates the economic advantage of enhancing wetland coverage for coastal protection.
