@@ -17,13 +17,17 @@ about:
 
 ## About me
 
-Hi, I'm Natalie. I'm currently pursuing a master's degree at the Bren School of Environmental Science & Management (UCSB), where I'm focusing on tackling climate challenges through strategic planning and data-driven solutions. With a background in music, art, and ecology, I strive to bring creative and analytical thinking to promote sustainability and resilience in both natural and urban environments.
+Hi, I’m Natalie. I’m pursuing a master’s degree at the Bren School of Environmental Science & Management, where I focus on addressing climate challenges through strategic planning and data-driven solutions. With a background in music, art, and ecology, I combine creative and analytical thinking to promote resilience in both natural and urban environments.
 
-## Current Projects
+## Recent and Ongoing Projects
 
 [Evaluating Ecological Conservation Gaps Across a Proposed Sentinel Landscape (Connectivity Analysis)](https://bren.ucsb.edu/projects/evaluating-ecological-conservation-gaps-across-proposed-sentinel-landscape)
 
 [Mapping Heat-Risk Inequalities in Los Angeles County](https://plantsmith.shinyapps.io/heat_risk_inequality/)
+
+[Quantifying the Value of Wetland Restoration](https://plantsmith.quarto.pub/natalie-smith/portfolio/benefits_transfer/)
+
+[Tradeoffs of Green Investing](https://plantsmith.quarto.pub/natalie-smith/portfolio/green_investing/)
 
 ## Professional Interests
 

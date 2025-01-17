@@ -36,7 +36,7 @@ Given limited resources and funds, it is necessary to optimize protected area pl
 
 The lowest-cost reserve model was constructed using prepared species and parcel data. To identify priority areas, we implemented the marxan_problem() function in R Studio, defining the conservation planning problem and setting the necessary parameters and constraints (see Appendix A). This framework allowed us to identify optimal conservation solutions efficiently. To enhance the model’s performance, we integrated the Gurobi solver, configuring it with a 0% optimality gap (gap = 0) to ensure one optimal solution as the output. By using Gurobi, we were able to run multiple solution iterations quickly and effectively, resulting in high accuracy in identifying priority conservation areas. In the solution output of this model, ‘0’ indicates that the planning unit was excluded, while a ‘1’ indicates its inclusion in the optimal solution. Additionally, we constructed a portfolio model to account for potential conservation constraints and display a range of solutions. Building upon our initial marxan_problem, we set an optimality threshold of 15%, allowing for solutions within 15% of the optimal solution. The model was run 100 times to explore variability and robustness in the results. We summed the solutions to calculate the selection frequency of each planning unit across all iterations. To identify priority areas for endangered species, we isolated endangered species in the initial species dataset and repeated this analysis. To visualize our results, we joined the optimal and portfolio results by ID with the Morro Bay parcels shapefile, respectively. This integration allowed us to identify locations and acreage of selected planning parcels based on the best solution results and the summed selection frequencies from the portfolio analysis.
 
-# Results: 
+# Results:
 
 When applying the best-fit model to all species as well as endangered species, our results indicated that planning units 5 and 6 were the most suitable options for achieving conservation targets for 30% of each species' range. Figure 1 shows the selected planning units under the best solution for all species and endangered species. In the portfolio model, planning unit 6 also emerged as the best choice, aligning with our optimal solution, as it displayed the highest selection frequency with a sum of 100. However, it is important to note that planning unit 6 is a locked-in unit, meaning it will always be included in the solution, which contributes to its highest summed value. Figure 2 shows a spectrum of selection frequencies for planning units for all species and endangered species. The table below shows the differences in selected planning unit acreage between all species and endangered species for both solution types.
 
@@ -46,7 +46,6 @@ library(knitr)
 library(kableExtra)
 library(tidyverse)
 ```
-
 
 ```{r}
 #make a dataframe with selected information: 
@@ -75,8 +74,6 @@ kable(table,
   column_spec(1, bold = TRUE) %>%
   row_spec(0, bold = TRUE, background = "#D3D3D3")
 ```
-
-
 
 ![Figure 1: Priority Reserve Planning Units for All Species and Endangered Species in Morro Bay, California (Best Solution). Selected lowest-cost planning unit solutions compare all species to endangered species. The endangered species representation highlights fewer, more targeted areas for conservation.](best_solution.png){width="600"}
 

@@ -4,6 +4,7 @@ description: "Utilizing non-linear least squares (NLS) analysis, facilitated by 
 author: "Natalie Smith"
 categories: [NLS, Wrangling, Visualization, Predictive Modeling]
 date: 03-15-2024
+image: "low_high.png"
 format:
   html:
     code-fold: true

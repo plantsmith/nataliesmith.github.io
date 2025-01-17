@@ -155,7 +155,7 @@ width_plot <- ggplot(palmetto,
 
 ```
 
-### Combined Plot: 
+### Combined Plot:
 
 ```{r}
 plot1 <- leaves_plot + 

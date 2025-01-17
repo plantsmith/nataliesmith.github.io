@@ -1,7 +1,7 @@
 ---
 title: "Air,NYC: Mapping the Concrete Jungle"
 description: "Analyzing air pollution levels in New York City between 2020 and 2021 with ArcGIS through census and zoning data."
-author: "Natalie Smith"
+author: "Natalie Smith and Sam Lance"
 categories: [GIS, Environmental Justice, Urban, Visualization, Spatial Analysis]
 date: 03-12-2024
 format:
