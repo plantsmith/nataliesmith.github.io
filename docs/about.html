@@ -141,11 +141,12 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>While I started my career in music (Berklee College Of Music), I pivoted into ecology soon after. With an interest in California native plants, I began working with the Audobon Center and TreePeople, assisting with restoration initiatives.</p>
-<p>To build my knowledge and skills in the field, I completed a rigorous, year-long Horticulture Certification from UCLA Extension in 2020 and earned my California Native Plant Landscaper Certificate (CNPLC) in 2021. I then worked as an affiliate ecologist at Great Ecology, where I helped monitor plant establishment in wetland restoration efforts.</p>
-<p>Additionally, as Operations Manager at Fig Earth Supply Nursery, I spearheaded the Native Plant Program, promoting education and raising awareness about sustainable landscapes in urban Los Angeles.</p>
-<p>I am currently pursuing my master’s degree at the Bren School, where the interdisciplinary curriculum enables me to approach climate, conservation, and sustainability from a holistic perspective. As a long-time Angeleno with a strong foundation in ecology, my interests lie at the intersection of the built and natural environments. I am passionate about developing strategies to mitigate and adapt to climate change, advancing climate resilience, and implementing nature-based solutions to create sustainable urban systems.</p>
-<p>In my free time, you can find me tending to my garden, walking along the LA River path, or at the movies. I also enjoy listening to old records, a good cup of coffee, and taking pictures of plants.</p>
+<p>While I began my career in music (<em>Berklee College of Music</em>), my passion for the environment led me to ecology. After working on restoration projects with the Audubon Center and TreePeople, I deepened my expertise with a <strong>Horticulture Certification (UCLA)</strong> and a <strong>California Native Plant Landscaper Certificate</strong>.</p>
+<p>Since then, I’ve worked as an <strong>Affiliate Ecologist at Great Ecology</strong>, led the <strong>Native Plant Program</strong> at Fig Earth Supply, and am now pursuing my <strong>Master’s at the Bren School of Environmental Science &amp; Management (UCSB)</strong>, focusing on conservation planning and climate adaptation.</p>
+<p>In my free time, you can find me tending to my garden, at the movies, or listening to old records with a good cup of coffee.</p>
+<div class="image-grid">
+<p><img src="images/natalie_hikes.jpeg" class="img-fluid" width="294" alt="Hiking in the Channel Islands"><img src="images/poppies.jpg" class="img-fluid" width="275" alt="California Poppies"><img src="images/toyon.jpeg" class="img-fluid" width="275" alt="toyon"><img src="images/buckwheat.jpg" class="img-fluid" width="275" alt="Eriogonum fasciculatum"></p>
+</div>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Education</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Certifications</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Conferences</a></li></ul>
 <div class="tab-content">
@@ -164,12 +165,6 @@ ul.task-list li input[type="checkbox"] {
 <p>California Native Plant Society Conference | 2021</p>
 </div>
 </div>
-</div>
-<div class="image-grid">
-<p><img src="images/natalie_hikes.jpeg" class="img-fluid" width="400" alt="Hiking in the Channel Islands">. <img src="images/poppies.jpg" width="400" height="500" alt="California Poppies"></p>
-</div>
-<div class="image-grid">
-<p><img src="images/salvia.jpeg" width="400" height="500" alt="Salvia">. <img src="images/buckwheat.jpg" width="400" height="500" alt="Eriogonum fasciculatum"></p>
 </div>
 
 
@@ -267,7 +262,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/plantsmith\.quarto\.pub\/natalie-smith");
+      var filterRegex = new RegExp('/' + window.location.host + '/');
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
