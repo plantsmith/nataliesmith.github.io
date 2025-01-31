@@ -1,0 +1,39 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  favicon: black_smile.png
+  title: "Natalie Smith" 
+  navbar:
+    background: white
+    left:
+      - href: index.qmd
+        text: Home
+      - href: about.qmd
+        text: About
+      - href: portfolio.qmd
+        text: Portfolio
+      - href: music.qmd
+        text: Music
+      # - href: contact.qmd
+      #   text: Contact
+  page-footer:
+    background: light # or dark
+    left:
+      - "Copyright 2024, Natalie Smith"
+    right:
+      - "Built with Quarto"
+    #   - icon: github
+    #     href: https://github.com/samanthacsik
+    #   - icon: twitter
+    #     href: https://twitter.com/SamanthaCsik     
+
+format:
+  html:
+    theme: Lux
+    css: styles.css
+    toc: true
+    page-layout: full
+
+editor: visual

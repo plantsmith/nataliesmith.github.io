@@ -1,0 +1,45 @@
+---
+title: "About"
+---
+
+While I started my career in music (Berklee College Of Music), I pivoted into ecology soon after. With an interest in California native plants, I began working with the Audobon Center and TreePeople, assisting with restoration initiatives.
+
+To build my knowledge and skills in the field, I completed a rigorous, year-long Horticulture Certification from UCLA Extension in 2020 and earned my California Native Plant Landscaper Certificate (CNPLC) in 2021. I then worked as an affiliate ecologist at Great Ecology, where I helped monitor plant establishment in wetland restoration efforts.
+
+Additionally, as Operations Manager at Fig Earth Supply Nursery, I spearheaded the Native Plant Program, promoting education and raising awareness about sustainable landscapes in urban Los Angeles.
+
+I am currently pursuing my master’s degree at the Bren School, where the interdisciplinary curriculum enables me to approach climate, conservation, and sustainability from a holistic perspective. As a long-time Angeleno with a strong foundation in ecology, my interests lie at the intersection of the built and natural environments. I am passionate about developing strategies to mitigate and adapt to climate change, advancing climate resilience, and implementing nature-based solutions to create sustainable urban systems.
+
+In my free time, you can find me tending to my garden, walking along the LA River path, or at the movies. I also enjoy listening to old records, a good cup of coffee, and taking pictures of plants.
+
+::: panel-tabset
+### Education
+
+Master of Environmental Science and Management \| 2025 \| Bren School Of Environmental Science & Management at UCSB
+
+Bachelor of Music \| Berklee College of Music
+
+### Certifications
+
+Leed Green Associate \| 2023
+
+Wildfire Defense Professional (USGBC-LA) \| 2022
+
+California Native Plant Landscaper Certificate (CNPLC) \| 2021
+
+Horticulture (UCLA Extension) \| 2020
+
+### Conferences
+
+National Adaptation Forum \| 2024
+
+California Native Plant Society Conference \| 2021
+:::
+
+::: image-grid
+![Hiking in the Channel Islands](images/natalie_hikes.jpeg){width="400"}. ![California Poppies](images/poppies.jpg){width="400" height="500"}
+:::
+
+::: image-grid
+![Salvia](images/salvia.jpeg){width="400" height="500"}. ![Eriogonum fasciculatum](images/buckwheat.jpg){width="400" height="500"}
+:::
