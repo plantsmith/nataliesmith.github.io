@@ -19,10 +19,9 @@ about:
 
 **Hi, I’m Natalie.**
 
-I’m a scientist, musician, communicator, and crafter – usually daydreaming about climate solutions, native plants, and ways to make the <span style="color:#3E8340;">world a little greener</span>. 
+I’m a scientist, musician, communicator, and crafter – usually daydreaming about climate solutions, native plants, and ways to make the [world a little greener]{style="color:#3E8340;"}. <img src="images/leaf.png" alt="leaf icon" width="20" height="20"/>
 
 I've compiled some of my recent work here. Feel free to explore and get in touch!
-
 
 ## Recent and Ongoing Projects
 
