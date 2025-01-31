@@ -1,0 +1,45 @@
+---
+title: "Music"
+---
+
+::::: grid
+::: g-col-4
+![Natalie + Eric = Cape Weather](images/corkboard.JPG){fig-align="left" width="300"}
+:::
+
+::: g-col-8
+Before transitioning into the environmental field, I spent over 5 years as a professional musician—creating, performing, and teaching music to diverse audiences. As part of **Cape Weather**, I wrote and performed original music, releasing over six EPs, including the critically acclaimed single "Telephono." I established a solid presence in the music industry through a range of performances, collaborations, strategic planning, and effective branding, which led to over 3 million streams on [Spotify](https://open.spotify.com/artist/7J1pOyIKObwsdVRzu4scnI?si=LSluu_L8Q_-RG6FlWk1BIQ), along with music placements in film and television. Additionally, I collaborated to create engaging music videos that visually brought our songs to life. Our music has been featured on NPR and Los Angeles' KCRW. As a solo vocalist, I have performed at 100+ corporate and private events and provided background vocals for artists like Ben Folds.
+
+While my career has since shifted to climate and sustainability—a passion that's central to my work now—I still love music and play in my free time.
+
+Below is some music I've created over the years.
+:::
+:::::
+
+<br>
+
+```{=html}
+<style>
+.center {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* Allows images to wrap in case of small screens */
+}
+.image-grid {
+  display: flex;
+  justify-content: center;
+}
+</style>
+```
+
+:::: center
+::: image-grid
+[![telephono_crop](images/telephono_crop.jpg){width="300"}](https://capeweatherband.bandcamp.com/track/telephono-3) [![ruin my day](images/ruin_my_day.jpg){width="300"}](https://capeweatherband.bandcamp.com/track/ruin-my-day) [![self titled](images/self_titled.jpg){width="300"}](https://capeweatherband.bandcamp.com/album/cape-weather)
+:::
+::::
+
+::: image-grid
+[![slow dance](images/slow_dance.PNG){width="300"}](https://capeweatherband.bandcamp.com/album/slow-dance-2) [![hunny vol. 1](images/hunny1.jpg){width="300"}](https://capeweatherband.bandcamp.com/album/hunny-vol-1) [![hunny vol. 2](images/hunny2.jpg){width="300"}](https://capeweatherband.bandcamp.com/album/hunny-vol-2)
+:::
+
+{{< video https://www.youtube.com/watch?v=67ifaPm2OCE&list=PLxQOolG5C6cHGcbgSbTJjAV-c7ipobiw1&index=1>}}
