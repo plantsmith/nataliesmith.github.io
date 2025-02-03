@@ -1,0 +1,50 @@
+/* css styles */
+
+
+/* --------------------------------------------- */
+/* link styling                                  */
+/* --------------------------------------------- */
+
+/* Links (a): Customize the default link appearance */
+a {
+  color: inherit;                     /* Inherit the text color (no specific link color) */
+  text-decoration: underline;         /* Add underline to links */
+}
+
+/* Links on hover: Keep the underline effect */
+a:hover {
+  color: inherit;                     /* Keep the same text color on hover */
+  text-decoration: underline;         /* Keep the underline on hover */
+}
+
+/* Default navbar styling: light green background */
+.navbar {
+  background-color: #A8A36C;  /* Green background for the navbar */
+  /* You can change this to any other color if you need a different default navbar color */
+}
+
+/* Apply the white color to all navbar links and the navbar brand */
+.navbar-nav .nav-link, 
+.navbar-brand {
+  color: #000000 !important;  /* Black text color for navbar items (change from white) */
+  /* You can change #000000 to any other color to adjust text color for all links and brand */
+}
+
+/* Navbar link hover: Change the background color to light green and text to white */
+.navbar-nav .nav-link:hover,
+.navbar-brand:hover {
+  background-color: #A8A36C;   /* Green background on hover */
+  color: white;                 /* White text color on hover */
+  text-decoration: underline;   /* Underline on hover */
+  /* If you want to change the hover background color or text color, adjust the values above */
+}
+
+/* Optional: Remove blue outline or shadow when the navbar link is focused */
+.navbar-nav .nav-link:focus,
+.navbar-brand:focus {
+  outline: none;  /* Remove the default blue outline when clicking on the link */
+  box-shadow: none; /* Remove any box-shadow applied by the browser */
+  /* You can add a custom outline or shadow here if you prefer */
+}
+
+

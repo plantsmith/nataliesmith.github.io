@@ -1,0 +1,45 @@
+---
+title: "Natalie Smith"
+image: headshot.jpeg
+toc: false
+about: 
+  template: trestles
+  image-shape: rectangle
+  image-width: 30em
+  links:
+    - icon: linkedin 
+      text: LinkedIn
+      href: https://www.linkedin.com/in/natsmith/
+    - icon: github
+      text: GitHub
+      href: https://github.com/plantsmith
+    - icon: envelope
+      text: Email
+      href: mailto:nasmith@bren.ucsb.edu
+---
+
+## About me
+
+**Hi, I’m Natalie.**
+
+I’m a scientist, musician, communicator, and crafter – usually daydreaming about climate solutions, native plants, and ways to make the [world a little greener]{style="color:#A8A36C;"}. <img src="images/leaf.png" alt="leaf icon" width="20" height="20"/>
+
+I've compiled some of my recent work here. Feel free to explore and get in touch!
+
+## Recent and Ongoing Projects
+
+[Evaluating Ecological Conservation Gaps Across a Proposed Sentinel Landscape (Connectivity Analysis)](https://bren.ucsb.edu/projects/evaluating-ecological-conservation-gaps-across-proposed-sentinel-landscape)
+
+[Mapping Heat-Risk Inequalities in Los Angeles County](https://plantsmith.shinyapps.io/heat_risk_inequality/)
+
+[Quantifying the Value of Wetland Restoration](https://plantsmith.quarto.pub/natalie-smith/portfolio/benefits_transfer/)
+
+## Professional Interests
+
+Climate Adaptation \| Urban Biodiversity \| Environmental Justice \| Nature Based Solutions \| Sustainability \| Built Ecology
+
+## Skill Sets
+
+Ecology \| Data Science \| GIS \| R Programming Language \| Excel \| Project Management \| Stakeholder Engagement
+
+## 
