@@ -8,8 +8,6 @@ website:
   navbar:
     background: white
     left:
-      - href: index.qmd
-        text: Home
       - href: about.qmd
         text: About
       - href: portfolio.qmd
@@ -29,10 +27,12 @@ website:
 
 format:
   html:
-    # theme: Lux
-    theme: Litera
-    css: styles.css
-    scss: styles.scss
+    theme: 
+      - Litera
+      - styles.scss
+    mainfont: Nunito
+    # theme: styles.scss
+    # css: styles.css
     toc: true
     page-layout: full
 
