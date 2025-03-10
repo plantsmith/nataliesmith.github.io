@@ -1,0 +1,91 @@
+---
+title: "Air,NYC: Mapping the Concrete Jungle"
+description: "Analyzing air pollution levels in New York City between 2020 and 2021 with ArcGIS through census and zoning data."
+author: "Natalie Smith and Sam Lance"
+categories: [GIS, Trends]
+date: 03-12-2024
+format:
+  html:
+    code-fold: true
+execute:
+  echo: true
+  message: false
+  warning: false
+draft: false # "true" will mean this is a draft post so it wont show up on my site
+freeze: true
+---
+
+# Background:
+
+Denser urban populations encounter elevated levels of air pollution resulting from intensified traffic, construction, and human activity, affecting public health, the environment, economy, climate, and overall welfare. This summary is a component of the final project presentation for my master's course ESM 263: GIS.
+
+![The view to the south from the Empire State Building on Nov. 24, 1966, one of New York’s worst smog days. Credit: Neal Boenzi/The New York Times](old_nyc.png)
+
+Common Contaminants:
+
+-   PM 2.5: Originates from diesel engines, biomass burning, industrial processes, and residential heating; poses health risks due to fine particles penetrating deep into lungs.
+-   Black Carbon: Emitted from diesel engines and biomass burning; absorbs sunlight, causing localized warming effects.
+-   Nitrogen dioxide (NO2) & Nitric Oxide (NO): Combustion byproducts from vehicles and industries; contribute to smog, acid rain, and respiratory issues.
+
+# Project Goals
+
+The goal of this project was to comprehensively assess the air quality in New York City using GIS. Specifically we:
+
+-   Quantified air quality
+-   Analyzed the average air quality in different areas
+-   Compared the mean air qualities to better understand causes of air pollution
+
+# Data Sources:
+
+-   New York City Community Air Survey: Air Pollution Rasters 2021
+    -   PM 2.5
+    -   Black Carbon
+    -   Nitrogen dioxide (NO2) and Nitric Oxide (NO)
+-   NYC Department of City Planning (DCP), Borough Boundaries (Polygon)
+-   NYC Department of City Planning (DCP), Zoning Features (Polygon)
+-   NYC Department of City Planning (DCP), Census Tracts 2020 (Polygon)
+
+![Survey team member deploys a monitor in the field](survey_install.png){fig-align="left" width="500"}
+
+We utilized a variety of open-source raster and vector data sources, including the NYC Department of City's Planning Borough, Zoning, and Census data, as well as the New York Community Air Survey Data. This air pollution survey data offers insights into citywide air pollution levels, with samples collected seasonally for two weeks, focusing on six contaminants. Monitor locations were strategically chosen to encompass diverse neighborhood characteristics and potential emission sources, including 15 environmental justice sites in low-income areas. For out analysis, we focused on the pollutants with annual averages: NO, NO2, PM2.5, and BC.
+
+# Conceptual Model and Methods:
+
+![Conceptual Model](flowchart.jpg)We took the following steps in our analysis:
+
+-   Started with four air quality rasters, census tract data, and zoning data
+-   Identified zoning types corresponding to industry in NYC and selectively utilized this data through attribute selection.
+-   Reprojected all data to WGS 1984 Zone 18N and converted two polygons to rasters
+-   Resampled our data to 30m for more granularity
+-   Reclassified the data into three quantiles, with the original intention of using EPA recommendations but faced challenges in obtaining relevant data.
+-   Combined the rasters using raster calculator to provide an overview of general air quality across the city, categorized into low, medium, and high levels.
+-   Conducted zonal statistics (majority) with both census and industrial data, followed by zonal statistics by table to obtain specific values for each tract and industrial zone.
+-   Joined these values back to the original polygons.
+-   Employed summary statistics to determine the mean value for all census tracts and industrial districts.
+-   Symbolized the data based on values from the raster calculator and zonal statistics, categorized into low, medium, and high air quality levels for ease of interpretation.
+
+# NYC Air Quality, Census Tracts:
+
+![Census Tracts](census.jpg)There are relative disparities in air quality across all boroughs based on census data. Values obtained from our model ranged from 4 to 12, which were subsequently categorized into three groups: low, medium, and high. These categories were symbolized on the map for visualization, with darker colors indicating higher pollution. Additionally, a mean value of 9.72 was calculated to facilitate comparison with our industrial districts.
+
+Additional analysis conducted by my colleague, Sam Lance, on industrial districts confirms our findings. Industrial areas show similar air quality trends to census tracts, with the most severe pollution centered around Manhattan and neighboring parts of Brooklyn and Queens. The majority mean air quality index in industrial zones is 10.91, surpassing the average for census tracts, highlighting the need for further investigation into industrial emissions' impact on air quality.
+
+# References:
+
+### Data Sources:
+
+New York City Community Air Survey: Air Pollution Rasters 2020
+
+PM 2.5, Black Carbon, Nitrogen dioxide (NO2) and Nitric Oxide (NO), Sulfur dioxide (SO2)
+
+NYC Department of City Planning (DCP), Borough Boundaries (Polygon)
+
+NYC Department of City Planning (DCP), Zoning Features (Polygon)
+
+NYC Department of City Planning (DCP), Census Tracts 2020 (Polygon)
+
+### Studies:
+
+New York City Community Air Survey. NYC Community Air Survey - NYC Health. http://tiny.cc/NYCSurvey
+
+Environmental Protection Agency. EPA. https://tinyurl.com/aqi2021
