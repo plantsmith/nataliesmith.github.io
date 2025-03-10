@@ -1,0 +1,1141 @@
+---
+title: "Tracking PM2.5 Trends in Los Angeles"
+description: "An overview of how I created a data-driven infographic on PM2.5 levels in Los Angeles (2010–2024), from data analysis in R Studio to design refinement in Affinity Designer"
+author: "Natalie Smith"
+date: "March 5, 2025"
+categories: [Trends]
+image: december_haze.png
+format: 
+  html:
+    code-fold: true
+    toc: true
+    number-sections: true
+    embed-resources: true
+editor: visual
+execute:
+  echo: true
+  message: false
+  warning: false
+freeze: true
+---
+
+As a long-time Angeleno, I'm no stranger to hazy days and pollution soaked sunsets, but this past December felt different. The air was thick, smothering the city in a gray blanket that lingered for weeks. I found myself wondering—was the pollution actually worse, or was I simply more aware of it this time? Curious about whether this perception was backed by data, I decided to take a deeper dive into the air quality trends in Los Angeles.
+
+[![Downtown L.A.'s skyline obscured by smog in December 2024. (Getty Images)](december_haze.png){fig-align="center" width="900"}](photograph%20of%20downtown%20Los%20Angeles%20covered%20in%20smog)
+
+# Exploring Air Quality Trends
+
+I began by exploring air quality datasets from the EPA, focusing on the annual median [Air Quality Index (AQI)](https://www.epa.gov/outdoor-air-quality-data/air-quality-index-daily-values-report) for Los Angeles County. While reviewing long-term AQI trends, I became curious about the specific pollutants driving poor air quality. By calculating the average frequency of each pollutant since 2000, I found that **PM2.5 was the dominant contributor**, responsible for **49% of air pollution**. This discovery led me to ask a new set of questions: *Where is PM2.5 most concentrated?* *What are its major sources? And how has it changed over time?*
+
+# Final Infographic
+
+![Infographic showing PM 2.5 pollution trends in the greater Los Angeles.](infographic_final.png){fig-alt="Infographic showing PM 2.5 pollution trends in the greater Los Angeles."}
+
+This infographic consists of three separate plots that I created in R and then combined using Affinity Designer. Below, I outline the process I used to develop this graphic.
+
+# Building the Infographic
+
+## Finding Inspiration
+
+I began by gathering inspiration and experimenting with various plot styles. A photo of a smoggy LA skyline inspired my color choices. I used a color grabber tool to extract a palette from the image, then adjusted it for accessibility to ensure it was readable for all viewers. For typography, I selected Montserrat and Open Sans, which offer a balance of professionalism and readability without detracting from the visuals. For more about the general design and design elements jump to the 'design elements' section.
+
+![Creating a vision board in Affinitiy Designer for the infographic using an LA skyline photo. The color palette was extracted from the image, with typography options laid out alongside.](inspo.png)
+
+## R Setup, Data, and Wrangling
+
+In the next phase of the project, I set up my environment in R Studio by loading the necessary libraries, setting up my color palette, importing custom fonts, and loading the data from CalEnviroscreen and the EPA. A significant amount of data wrangling was required for each visualization, and throughout this blog post, you can click and expand the code chunks to view more details about the process. Links to the data sources and the specific code used for wrangling will be provided in the following sections.
+
+```{r}
+#| message: false
+#| warning: false
+
+# The following R code sets up the environment by importing necessary libraries, cleaning data, and defining custom colors for the map visualization.
+
+#libraries: 
+library(tidyverse)   
+library(janitor)     
+library(lubridate)
+library(here)        
+library(doBy)      
+library(scales)
+library(showtext) 
+library(glue)
+library(ggtext)
+library(sf)
+library(here)
+
+#......................import Google fonts.......................
+# `name` is the name of the font as it appears in Google Fonts
+# `family` is the user-specified id that you'll use to apply a font in your ggpplot
+font_add_google(name = "Montserrat", family = "mont")
+font_add_google(name = "Open Sans", family = "open_sans")
+
+
+
+# turn show text on
+showtext_auto()
+
+# option 1
+smog_pal <- c("#79AAB6", 
+              "#B0C7C1", 
+              "#E3AC79", 
+              "#CC7E62",
+              "#B77B70")
+
+
+# option 2
+smog_pal2 <- c("#79AAB6", 
+              "#B0C7C1", 
+              "#DFAF75", 
+              "#DE8635",
+              "#DF674F")
+
+
+# option 3
+smog_sub_pal <- smog_pal2[c(4,5)]
+
+
+
+```
+
+## Mapping PM 2.5 in Los Angeles
+
+To answer *where is PM2.5 distribution across Los Angeles*, I used [CalEnviroScreen (2023) data](https://oehha.ca.gov/calenviroscreen/download-data), mapping percentiles at the census tract level. Percentiles rank each tract’s pollution concentration relative to all others in California, helping identify high-exposure areas. The analysis also revealed that areas with high PM2.5 pollution often overlap with neighborhoods facing significant poverty, highlighting the intersection of environmental and socioeconomic disparities.
+
+```{r}
+ #| eval: true
+ #| echo: false
+ #| message: false
+ #| warning: false
+
+# bring in enviroscreen shapefile
+    enviroscreen_sf <- read_sf(here("portfolio/pm2_5_la/data/enviroscreen_shapefiles/CES4_final_shapefile.shp")) %>% 
+      clean_names() 
+
+
+#-------- Tidy Data-------------
+
+# Define excluded locations
+    excluded_locations <- c("Santa Clarita", "Palmdale", "Lancaster", "Acton", 
+                           "Agua Dulce", "Altadena", "Lake Los Angeles",
+                           "Leona Valley", "La Crescenta-Montrose")
+
+    excluded_tracts <- c("6037911001", "6037910002", "6037403325", "6037104124",
+                         "6037920326", "6037930301", "6037910709", "6037920303")
+
+    excluded_zips <- c("90265", "93535", "93552", "93532", "90704",
+                       "91384", "91387", "91390", "93510", "93536", "91351",
+                       "91011", "91355", "93551", "91342", "91381")
+
+
+# Tidy data 
+    enviroscreen_sf <- enviroscreen_sf %>% 
+      filter(county == "Los Angeles") %>% 
+      select(tract, 
+             zip,
+             approx_loc,
+             pm2_5_p,
+             geometry,  
+             county) %>% 
+      filter(!approx_loc %in% excluded_locations) %>%
+      filter(!tract %in% excluded_tracts) %>%
+      filter(!zip %in% excluded_zips)
+
+```
+
+```{r}
+#| eval: true
+#| echo: false
+#| message: false
+#| warning: false
+#| output: true
+#| fig-cap: "Figure 1: Spatial distribution of PM2.5 pollution in Los Angeles. Census tracts are shaded based on their PM2.5 percentiles relative to all of California, with darker shades indicating higher pollution levels. Even neighborhoods with lower pollution still experience 50% more pollution compared to the rest of California. Areas in the 90th percentile include Reseda, Van Nuys, and Central Los Angeles."
+#| fig-alt: "A choropleth map visualizing PM2.5 pollution levels across Los Angeles census tracts.Darker shades indicate higher pollution percentiles relative to all of California."
+
+# BASE MAP -- 
+
+base_map <- ggplot(enviroscreen_sf) +
+  geom_sf(aes(fill = pm2_5_p, color = NULL), 
+          color = NA, linewidth = 0) + #set the color outline to NA (no color) and linewidth to 0 (no borders)
+  theme_void() # remove background
+
+
+# ADD ON TO BASE MAP --
+pm_map <- base_map +
+  
+# adjust colors with gradient fill:
+ scale_fill_gradientn(colors = smog_pal2,
+                       labels = label_percent(scale = 1), # add percentage sign to each of our values
+                       breaks = breaks_width(width = 10), # add breaks every 10 
+        
+) + 
+    
+  # update look of legend: 
+  guides(fill = guide_colorbar(barwidth = 25, 
+                               barheight = 0.75)) + #stretch out legend
+  
+# LABS ---  
+  
+labs(
+  title = "Mapping PM2.5 Pollution in Los Angeles",
+  subtitle = "Census tract percentiles relative to all California—<br>darker shades indicate higher pollution",
+  caption = "Data: CalEnviroscreen, 2025"
+) +
+
+# CUSTOMIZE THEME --
+theme(
+  plot.title.position = "plot", # shift title to the left
+  plot.title = element_text(family = "mont",
+                            face = "bold",
+                            size = 18,
+                            color = "black"),  
+  plot.subtitle = ggtext::element_textbox(family = "open_sans",
+                             size = 11.5,
+                             color = "black",
+                             margin = margin(t = 2, r = 0, b = 6, l = 0)),  # move in clockwise to top, right, bottom, left
+  plot.caption = ggtext::element_textbox(family = "open_sans",
+                             face = "italic",
+                             color = "black",
+                             margin = margin(t = 15, r = 0, b = 0, l = 0)),
+  
+  legend.position = "bottom",  # move legend to the bottom
+  legend.title = element_blank(),  # no legend title
+  
+  # margins
+  plot.margin = margin(t = 10, r = 10, b = 10, l = 10)
+) 
+
+pm_map
+
+```
+
+## Identifying Pollution Sources
+
+To answer the *question of major sources* *of PM2.5*, I analyzed the [EPA’s 2020 National Emissions Inventory (NEI)](https://www.epa.gov/air-emissions-inventories/national-emissions-inventory-nei), which tracks air pollution from both point and nonpoint sources. Point sources are single, identifiable emitters like power plants and factories, while nonpoint sources are more diffuse, stemming from widespread activities such as residential heating and vehicle emissions.
+
+I combined these datasets and categorized them by source type, ranking the top emitters by total emissions. The final visualization used a horizontal bar chart to compare pollution sources, with an annotation marking the 100-ton threshold for major contributors. I explored putting the tons emitted at the end of each bar to eliminate the need for the y-axis, but I didn't like the data-to-ink ratio.
+
+```{r}
+#| eval: true
+#| echo: false
+#| message: false
+#| warning: false
+#| output: true
+
+# --- POINT SOURCES -----
+
+# bring in data and clean names
+point_sources <- read.csv(here("portfolio/pm2_5_la/data/sources/facility_point_sources_2020.csv")) %>% 
+  clean_names()
+
+# filter for 2.5 and make emissions numeric
+point_sources <- point_sources %>% 
+  filter(pollutant %in% c("PM2.5 Primary (Filt + Cond)", "PM2.5 Filterable")) %>%
+  mutate(emissions_tons = as.numeric(emissions_tons))
+
+# EXPLORE TOP EMITTERS ---
+
+# Top 50 emitters
+top_50_point_sources <- point_sources %>% 
+  slice_max(order_by = emissions_tons, n = 50)
+
+
+# Major emitters (100+ tons)
+major_point_sources <- point_sources %>% 
+  filter(emissions_tons >= 100)
+
+
+# --- NONPOINT SOURCES -----
+
+# bring in data and clean names
+
+nonpoint_sources <- read.csv(here("portfolio/pm2_5_la/data/sources/nonpoint_sources_2020.csv")) %>% 
+  clean_names()
+
+# filter for 2.5 and make emissions numeric
+nonpoint_sources <- nonpoint_sources %>% 
+  filter(pollutant %in% c("PM2.5 Primary (Filt + Cond)", "PM2.5 Filterable")) %>% 
+  mutate(emissions_tons = as.numeric(emissions_tons)) %>% 
+  drop_na()
+
+# EXPLORE TOP EMITTERS ---
+
+# Top 50 emitters for nonpoint sources
+top_50_nonpoint_sources <- nonpoint_sources %>% 
+   slice_max(order_by = emissions_tons, n = 50)
+
+# Major emitters for nonpoint sources
+major_nonpoint_sources <- nonpoint_sources %>% 
+  filter(emissions_tons >= 100)
+
+# COMBINE SOURCES --  
+combined_sources <- bind_rows(
+  nonpoint_sources %>% 
+    mutate(source_type = "nonpoint", # add a new column 'source_type' with the variable "nonpoint" for each row
+           pollution_source = eis_sector, # set'pollution_source' column to be equal to the 'eis_sector' column
+           # Add empty columns for point-source-specific fields: 
+           site_name = NA,
+           eis_facility_id = NA,
+           facility_type = NA,
+           street_address = NA,
+           naics = NA,
+           lat_lon = NA,
+           longitude = NA,
+           latitude = NA),
+  
+  point_sources %>% 
+    mutate(source_type = "point",
+           pollution_source = facility_type,  #use facility_type  " "
+           # Add empty columns for nonpoint-source-specific fields:
+           scc_code = NA,
+           eis_sector = NA,
+           source_description = NA,
+           scc_level_1 = NA,
+           scc_level_2 = NA,
+           scc_level_3 = NA,
+           scc_level_4 = NA)
+)
+
+# WRANGLE ---
+combined_sources <- combined_sources %>% 
+  select(state_county, 
+         pollutant,
+         emissions_tons,
+         source_type,
+         pollution_source)
+
+# EXPLORE COMBINED TOP EMITTERS ----
+
+# Top 50 emitters for all sources
+top_50_sources <- combined_sources %>% 
+   slice_max(order_by = emissions_tons, n = 50)
+
+# Major emitters for all sources (greater than 100 tons)
+major_sources <- combined_sources %>% 
+  filter(emissions_tons >= 100)
+
+# top 10 
+top_10_sources <- top_50_sources %>% 
+  group_by(pollution_source, source_type) %>% 
+  summarise(total_emissions = sum(emissions_tons, na.rm = TRUE)) %>% 
+  # summarizes each group by calculating the total emissions for each 'pollution_source' and 'source_type'
+  ungroup() %>% 
+  slice_max(order_by = total_emissions, n = 10) %>% # top 10 based on total emissions
+  mutate(pollution_source = recode(pollution_source, # rename variables
+  "Industrial Processes - Not Elsewhere Classified" = "Other Industrial Processes",
+  "Fuel Comb - Residential - Wood" = "Residential Wood Combustion",
+  "Mobile - On-Road non-Diesel Light Duty Vehicles" = "Light Duty Vehicles",
+  "Dust - Construction Dust" = "Construction Dust",
+  "Waste Disposal" = "Waste Disposal",
+  "Petroleum Refinery" = "Petroleum Refineries",
+  "Fires - Wildfires" = "Wildfires",
+  "Fuel Comb - Residential - Natural Gas" = "Residential Natural Gas Combustion",
+  "Miscellaneous Non-Industrial Not Elsewhere Classified" = "Other Non-Industrial",
+  "Dust - Unpaved Road Dust" = "Unpaved Road Dust"
+))
+
+```
+
+```{r}
+#| eval: true
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-cap: "Figure 2: Top 10 sources of PM2.5 pollution in Los Angeles in 2020, categorized into point and non-point sources. Point sources refer to specific, stationary facilities such as petroleum refineries, while non-point sources are more diffuse and widespread, including Industrial Processes, Residential Wood Combustion, and Light Duty Vehicles. The dashed horizontal line indicates the EPA’s threshold for major sources, defined as those emitting more than 100 tons of PM2.5 annually."
+#| fig-alt: "A horizontal bar chart illustrating the top sources of PM2.5 pollution in Los Angeles for 2020, categorized into point and non-point sources. The x-axis displays the various pollution sources, ordered by total emissions, while the y-axis represents emissions in tons. Key sources of emissions include Industrial Processes, Residential Wood Combustion, and Light Duty Vehicles. A dashed horizontal line at 100 tons marks the EPA’s threshold for a major pollution source, with an annotation highlighting this threshold and an arrow pointing to the line."
+
+#subtitle: 
+subtitle <- glue::glue("
+  <span style='color:#DF674F;'>**Point sources**</span> represent single, identifiable locations of emission, while <br> <span style='color:#DE8635;'>**non-point sources**</span> encompass diffuse, widespread pollution origins across the region."
+)
+
+
+# PLOT IT ---
+top_sources <- ggplot(top_10_sources, 
+       aes(x = fct_reorder(pollution_source, total_emissions),  
+           y = total_emissions,  
+           fill = source_type)) + 
+       
+  geom_col() +  
+  
+  # Adding a horizontal line at y = 100 to highlight major source threshold
+  geom_hline(yintercept = 100, linetype = "dashed", color = "black") +  
+  
+    # Adding a horizontal line at y = 1000 for easier intrepretation
+  geom_hline(yintercept = 1000, linetype = "dashed", color = "grey90") +  
+  
+    # Adding a horizontal line at y = 2000
+  geom_hline(yintercept = 2000, linetype = "dashed", color = "grey90") +  
+  
+    # Adding a horizontal line at y = 3000
+  geom_hline(yintercept = 3000, linetype = "dashed", color = "grey90") + 
+  
+# ADD ANNOTATIONS --
+
+annotate(
+  geom = "text",
+  x = 3,
+  y = 1030,
+  label = str_wrap("The EPA defines 100 tons as the threshold for a major source of pollution", width = 25),
+  size = 3,
+  color = "black",
+  hjust = 0
+) +
+# arrow
+  annotate(
+    geom = "curve",
+    x = 3, xend = 5,   # Closer to the line horizontally
+    y = 1010, yend = 145,  # Lower the arrow to be closer to the threshold line
+    curvature = -0.1,  # Slight curve
+    arrow = arrow(length = unit(0.3, "cm"))
+  ) +
+
+  # Wrapping x-axis labels to 25 characters 
+  scale_x_discrete(labels = function(x) str_wrap(x, width = 25)) +  
+  
+ 
+  coord_flip() +  
+  
+  scale_fill_manual(values = smog_sub_pal) + 
+  
+  # Format y-axis labels to include "tons"
+  scale_y_continuous(labels = function(x) paste0(x, " tons")) +  # Adding "tons" to y-axis labels
+  
+  
+# LABS---
+  labs(
+    title = "Top 10 Sources of PM2.5 Pollution in Los Angeles", 
+    subtitle = subtitle,  
+    caption = "Data source: EPA (2020)"
+  ) +
+  
+  theme_minimal() +
+  
+# CUSTOMIZE THEME ---
+  theme(
+    axis.title = element_blank(),  # Removing axis titles (x and y)
+    panel.grid = element_blank(), # remove grid panels
+    
+    plot.title.position = "plot",  # Shifting the title to the left
+    
+    # customize plot title text
+    plot.title = element_text(family = "mont",  
+                              face = "bold", 
+                              size = 18,  
+                              color = "black"), 
+    
+    # customize subtitle text
+    plot.subtitle = ggtext::element_textbox(family = "open_sans",  
+                                           size = 11.5,  
+                                           color = "black", 
+                                           margin = margin(t = 2, r = 0, b = 6, l = 0)),  
+    
+    # customize caption text
+    plot.caption = ggtext::element_textbox(family = "open_sans",
+                                           face = "italic",  
+                                           color = "black",  
+                                           margin = margin(t = 15, r = 0, b = 0, l = 0)), 
+    
+    # Adjusting plot margins for overall spacing
+    plot.margin = margin(t = 10, r = 10, b = 10, l = 10), 
+    
+    # Customizing legend  - plot.legend isnt working
+    legend.position = "none",  
+)
+
+top_sources
+
+```
+
+## Visualizing Pollution Over Time
+
+My final visualization aimed to answer *how PM2.5 levels have changed over time.* I analyzed the [EPA’s Outdoor Air Quality dataset](https://www.epa.gov/outdoor-air-quality-data/download-daily-data), calculating annual mean concentrations from 2010 onward. The resulting line plot showed trends over the past decade, with black points representing yearly averages and a red point emphasizing a 2020 spike caused by the Bobcat Fire. To draw attention to this anomaly, I added an annotation and an arrow pointing to the data point.
+
+```{r}
+#| eval: true
+#| echo: false
+#| message: false
+#| warning: false
+
+# read in data and clean names
+PM2_5_df <- read.csv(here("portfolio/pm2_5_la/data/pm_annual.csv")) %>% 
+  clean_names()
+
+# TIDY --  
+
+PM2_5 <- PM2_5_df %>%
+# transform date from a character to a date
+  mutate(date = mdy(date)) %>%
+  # create new columns for month, day, and year using lubridate
+  mutate(
+    month = month(date),  
+    day   = day(date),    
+    year  = year(date)    
+  ) %>%
+  # select only needed columns
+  select(daily_mean_pm2_5_concentration, units, year, month) 
+
+# -------- F I N D   A N N U A L  M E A N --------  
+  annual_PM2_5 <- PM2_5  %>%  
+  group_by(year) %>%
+    summarize(
+      units = first(units),
+      yearly_mean_pm2_5 = mean(daily_mean_pm2_5_concentration, na.rm = TRUE),
+      .groups = "drop"
+    )
+```
+
+```{r}
+#| eval: true
+#| echo: false
+#| message: false
+#| warning: false
+#| output: true
+#| fig-cap: "Figure 3: Trends in PM2.5 levels in Los Angeles from 2010 to 2024, showing a consistent decline in pollution, although levels remain above the 9 µg/m³ threshold, placing LA in the moderate pollution category. As noted by a red point, there is a spike in PM 2.5 in 2020, presumably due to the Bobcat Fire."
+#| fig.alt: "Line plot showing annual mean PM2.5 levels in Los Angeles from 2010 to 2024. A decline in pollution is visible, but levels remain above 9 µg/m³, the threshold set by the EPA for the safe annual average concentration of PM2.5 for public health. A red point highlights the year 2020, with a spike in PM2.5 due to the Bobcat Fire. An arrow points to the 2020 spike, and a text annotation explains the impact of wildfires on air quality."
+
+# Filter data for PM2.5 after 2010
+filtered_pm <- annual_PM2_5 %>%
+  filter(year >= 2010)
+
+# Create the plot
+pm_trend <- ggplot(filtered_pm, aes(x = year, y = yearly_mean_pm2_5)) +
+  geom_line() + 
+  geom_point(color = "black", size = 3) + 
+  
+# ANNOTATIONS --   
+  # Red point for 2020 to show anomoly
+  geom_point(data = filtered_pm %>% filter(year == 2020), color = "#DF674F", size = 3) + 
+  
+  # Bobcat Fire 2020
+  annotate(
+    geom = "text",
+    x = 2023.65,
+    y = 13.65,
+    label = "PM 2.5 levels spike during \nwildfire events like the \n2020 Bobcat Fire",
+    size = 3,
+    color = "black",
+    hjust = "inward",
+    family = "open_sans"
+  ) +
+  
+  # add arrow
+  annotate(
+    geom = "segment",
+    x = 2020.15, xend = 2020.65,
+    y = 13.55, yend = 13.75,
+  ) +
+  
+# LABS --  
+  labs(
+    title = "Los Angeles Air Quality Trends (2000–2024)",
+    subtitle = "Although PM 2.5 pollution has steadily declined, it remains above 9 µg/m³, \nkeeping LA in the moderate pollution category.",
+    caption = "Data source: EPA (2025)",
+    y = "Mean PM2.5 (µg/m³)"
+  ) + 
+  
+# edit the x axis to show 2010 - 2024
+  scale_x_continuous(
+    limits = c(2010, 2024),
+    breaks = c(seq(2010, 2024, by = 5), 2024) # show breaks every 5 years but also show 2024 
+  ) + 
+  
+  theme_minimal() + # minimal theme
+  
+# CUSTOMIZE THEME --
+  theme(
+    
+    plot.title.position = "plot", # plot title to the left
+    # customize plot title text
+    plot.title = element_text(
+      family = "mont",
+      face = "bold",
+      size = 18,
+      color = "black"
+    ),
+     # customize subtitle text
+    plot.subtitle = element_text(
+      family = "open_sans",
+      size = 11.5,
+      color = "black",
+      margin = margin(t = 2, r = 0, b = 6, l = 0)
+    ),
+    # customize caption text
+    plot.caption = element_text(
+      family = "open_sans",
+      face = "italic",
+      color = "black",
+      margin = margin(t = 15, r = 0, b = 0, l = 0)),
+    
+    # minimal grid panels - want to have some reference but not too bold
+    panel.grid.minor.y = element_blank(),
+    panel.grid.major.x = element_blank(),
+    
+    # customize axis titles
+    axis.title.y = element_text(family = "open_sans"), # change y axis font
+    axis.title.x = element_blank(),   # Remove x axis title
+    
+    # Customizing legend  - plot.legend isnt working
+    legend.position = "none",  
+    
+    # update margin
+    plot.margin = margin(t = 10, r = 10, b = 10, l = 10)
+  ) 
+
+pm_trend
+
+
+```
+
+## Putting it All Together in Affinity Designer
+
+After generating all my visualizations, I exported them from R as PDFs and imported them into Affinity Designer. As a vector-based tool, Affinity allowed for precise adjustments to the size, colors, and intricate details of the graphics. I replaced graph titles, subtitles, and legends with annotations to streamline the final look and improve the data-to-ink ratio. Additionally, I included a hand-drawn illustration comparing PM2.5 particles to the width of a human hair, to give context and scale to the size of these pollutants.
+
+## Design Elements
+
+When creating an infographic, it's important to carefully consider various design elements. My goal was for the visualizations to connect and convey a cohesive story. In this section, I'll walk you through my thought process and the reasoning behind my choices for the design elements listed below.
+
+::: panel-tabset
+### Graphic Form
+
+While I experimented with several plot types, I ultimately chose a choropleth map, a bar graph, and a line plot. My goal was to use a variety of shapes to convey dynamic movement between the plots, effectively telling the story of the pollutant. I also experimented with displaying the overall AQI and all the pollutants in the AQI as bubbles, but this approach took attention away from the central focus on PM2.5 pollution in Los Angeles.
+
+### Text
+
+To create consistency across my visualizations, you'll notice that each one includes titles, subtitles, and captions. I also minimized the use of axis titles where they weren't absolutely necessary. In the final infographic, I moved away from traditional titles and subtitles, opting instead for annotations and colors to provide context and guide the reader through the story. Additionally, I used annotations in both the standalone graphs and the final infographic to emphasize key points, such as the 100-ton threshold for major pollution sources in the bar graph.
+
+### Themes
+
+My general aesthetic preference is quite minimal, so I chose to keep the plot themes simple to allow the bright colors to stand out. This involved removing legends, axis text, axis lines, and background grids, as previously mentioned. Most of these elements weren’t essential for conveying meaning and could be effectively replaced with annotations in the final graphic.
+
+### Colors
+
+I had a lot of fun experimenting with colors! As mentioned earlier, I chose a photograph of a smoggy downtown Los Angeles, which features distinct layers of smog and sky. Using the color picker in Affinity, I extracted the colors from the image. I then checked them for colorblind accessibility and tested them on a grayscale to ensure they remained distinguishable. To further improve accessibility, I adjusted the saturation and opacity. I’m really happy with the palette I ended up with—it transitions from a cool blue to a bright terracotta, capturing the sky in LA. The cool-to-warm gradient also helps illustrate the progression of pollution levels, from low to high.
+
+### Typography
+
+I used two fonts throughout my infographic to ensure consistency and readability. Montserrat was reserved for the main title, while Open Sans was used for all other text. Both are sans-serif fonts, chosen for their clarity and modern aesthetic—a subtle contrast to the theme of polluted air. To enhance readability and emphasize important details, I used bold text, often paired with color, to highlight key points in annotations and draw attention to critical statistics.
+
+### General Design
+
+I designed the infographic to guide the viewer’s eyes in a natural reading flow—moving from left to right and then down, similar to reading a book. However, I was also mindful that not everyone follows the same reading pattern, so I ensured that each graph could stand alone and be understood in any order. That said, I placed the illustration of PM2.5 and its context right at the top, just below the title, as I felt it was crucial for understanding the rest of the infographic.
+
+### Context
+
+I spent a lot of time refining the story to ensure it naturally guides the viewer toward key insights while still allowing for personal interpretation. However, I did provide context through the header, the PM2.5 illustration, and concise plot annotations. Instead of over-annotating with additional explanations or takeaways, I used select highlights to guide the reader and let the data speak for itself.
+
+### Message
+
+While this project initially started as an exploration without a specific message in mind, a clear takeaway emerged: **PM2.5 pollution in Los Angeles is a significant issue, with distinct spatial and temporal patterns.** The infographic serves more as an introductory overview (*think* — *PM2.5 Pollution 101)* rather than an in-depth analysis, providing viewers with a foundational understanding of the issue.
+
+### Accessibility
+
+As mentioned earlier, I created my own color palette based on a photo of smog. Some of the colors were too similar, which could cause accessibility issues for viewers with color blindness or in grayscale. To address this, I adjusted the saturation of certain colors to create more contrast. I also made sure to avoid placing colors that were too similar next to each other, unless they were part of a gradient. Additionally, I added alt text to all of my visuals to further ensure accessibility for all viewers.
+
+### DEI
+
+I knew I wanted to incorporate a DEI aspect into my choropleth map of PM2.5 pollution in Los Angeles. When I noticed pollution hotspots in Reseda and Central Los Angeles, I decided to check if these areas also ranked high on the CalEnviroScreen 4.0 percentile range. The CalEnviroScreen 4.0 percentile range is a tool used to assess the cumulative environmental, health, and socioeconomic impacts in California. Areas are ranked based on factors like water quality, proximity to hazardous waste sites, and poverty levels. Both Reseda and Central Los Angeles ranked very high, indicating they had high cumulative impacts, including both high PM2.5 levels and significant socioeconomic stressors. To represent this, I initially created a bivariate map. However, I faced challenges trying to explain what the CalEnviroScreen percentile range meant in the context of an infographic. To make this easier to interpret, I simplified the map by focusing solely on PM2.5 pollution and poverty. Despite this, I still found it difficult to display the data in a clear and understandable way, as I would need to explain each of the combinations (high pollution, high poverty; low pollution, high poverty, etc.) within the map for it to make sense to viewers. Since the bivariate map and the pollution distribution map looked very similar, I decided to show just the distribution of PM2.5 pollution in Los Angeles, and note the poverty aspect into the annotations. I think this made it easier to understand, but still hits on the major environmental justice issue at play.
+:::
+
+# Takeaways
+
+So was the air quality really worse that December day? The data shows a nuanced story. While PM2.5 levels have declined over the past decade, Los Angeles still **exceeds the EPA's recommended threshold of 9 µg/m³**. The December 2024 haze wasn't an anomaly, but a visible reminder of our ongoing air quality challenges.
+
+My analysis revealed several key insights:
+
+-   **Spatial inequality persists:** Pollution disproportionately affects certain neighborhoods, often overlapping with areas facing socioeconomic challenges.
+
+-   **Pollution stems from diverse sources**: Industrial activities, residential heating, and vehicles all contribute to PM2.5 pollution, creating a complex challenge especially in Los Angeles where the basin's geography concentrates and traps pollutants.
+
+-   **Progress is happening, but challenges remain**: While environmental regulations are improving air quality, pollution levels continue to exceed healthy standards. Wildfire events, which release significant amounts of pollutants, highlight our ongoing vulnerability to climate-related threats to air quality.
+
+Reflecting on that smoggy December day, I realize my perception wasn’t wrong—LA's air quality remains a challenge despite improvements. What has changed is my awareness of what we're breathing. For fellow Angelenos, I offer reassurance of progress, along with a reminder that the work for cleaner air is far from over. So the next time you see that hazy skyline, remember it reflects both our progress and the work still ahead.
+
+# Explore full code
+
+If you want to explore the full code, I've included it below for reference:
+
+```{r}
+#| eval: false
+#| echo: false
+#| message: false
+#| warning: false
+#| output: false
+
+# The following R code sets up the environment by importing necessary libraries, cleaning data, and defining custom colors for the map visualization
+
+# -----------------------------------
+# ----------------SET UP-------------
+# -----------------------------------
+
+#libraries: 
+library(tidyverse)   
+library(janitor)     
+library(lubridate)
+library(here)        
+library(doBy)      
+library(scales)
+library(showtext) 
+library(glue)
+library(ggtext)
+library(sf)
+library(here)
+
+#......................import Google fonts.......................
+# `name` is the name of the font as it appears in Google Fonts
+# `family` is the user-specified id that you'll use to apply a font in your ggpplot
+font_add_google(name = "Montserrat", family = "mont")
+font_add_google(name = "Open Sans", family = "open_sans")
+
+
+
+# turn show text on
+showtext_auto()
+
+# option 1
+smog_pal <- c("#79AAB6", 
+              "#B0C7C1", 
+              "#E3AC79", 
+              "#CC7E62",
+              "#B77B70")
+
+
+# option 2
+smog_pal2 <- c("#79AAB6", 
+              "#B0C7C1", 
+              "#DFAF75", 
+              "#DE8635",
+              "#DF674F")
+
+
+# option 3
+smog_sub_pal <- smog_pal2[c(4,5)]
+
+# -----------------------------------
+#-------------------MAP -------------
+# -----------------------------------
+
+# bring in enviroscreen shapefile
+    enviroscreen_sf <- read_sf(here("portfolio/pm2_5_la/data/enviroscreen_shapefiles/CES4_final_shapefile.shp")) %>% 
+      clean_names() 
+
+
+#-------- Tidy Data-------------
+
+# Define excluded locations
+    excluded_locations <- c("Santa Clarita", "Palmdale", "Lancaster", "Acton", 
+                           "Agua Dulce", "Altadena", "Lake Los Angeles",
+                           "Leona Valley", "La Crescenta-Montrose")
+
+    excluded_tracts <- c("6037911001", "6037910002", "6037403325", "6037104124",
+                         "6037920326", "6037930301", "6037910709", "6037920303")
+
+    excluded_zips <- c("90265", "93535", "93552", "93532", "90704",
+                       "91384", "91387", "91390", "93510", "93536", "91351",
+                       "91011", "91355", "93551", "91342", "91381")
+
+
+# Tidy data 
+    enviroscreen_sf <- enviroscreen_sf %>% 
+      filter(county == "Los Angeles") %>% 
+      select(tract, 
+             zip,
+             approx_loc,
+             pm2_5_p,
+             geometry,  
+             county) %>% 
+      filter(!approx_loc %in% excluded_locations) %>%
+      filter(!tract %in% excluded_tracts) %>%
+      filter(!zip %in% excluded_zips)
+
+# BASE MAP -- 
+
+base_map <- ggplot(enviroscreen_sf) +
+  geom_sf(aes(fill = pm2_5_p, color = NULL), 
+          color = NA, linewidth = 0) + #set the color outline to NA (no color) and linewidth to 0 (no borders)
+  theme_void() # remove background
+
+
+# ADD ON TO BASE MAP --
+pm_map <- base_map +
+  
+# adjust colors with gradient fill:
+ scale_fill_gradientn(colors = smog_pal2,
+                       labels = label_percent(scale = 1), # add percentage sign to each of our values
+                       breaks = breaks_width(width = 10), # add breaks every 10 
+        
+) + 
+    
+  # update look of legend: 
+  guides(fill = guide_colorbar(barwidth = 25, 
+                               barheight = 0.75)) + #stretch out legend
+  
+# LABS ---  
+  
+labs(
+  title = "Mapping PM2.5 Pollution in Los Angeles",
+  subtitle = "Census tract percentiles relative to all California—<br>darker shades indicate higher pollution",
+  caption = "Data: CalEnviroscreen, 2025"
+) +
+
+# CUSTOMIZE THEME --
+theme(
+  plot.title.position = "plot", # shift title to the left
+  plot.title = element_text(family = "mont",
+                            face = "bold",
+                            size = 18,
+                            color = "black"),  
+  plot.subtitle = ggtext::element_textbox(family = "open_sans",
+                             size = 11.5,
+                             color = "black",
+                             margin = margin(t = 2, r = 0, b = 6, l = 0)),  # move in clockwise to top, right, bottom, left
+  plot.caption = ggtext::element_textbox(family = "open_sans",
+                             face = "italic",
+                             color = "black",
+                             margin = margin(t = 15, r = 0, b = 0, l = 0)),
+  
+  legend.position = "bottom",  # move legend to the bottom
+  legend.title = element_blank(),  # no legend title
+  
+  # margins
+  plot.margin = margin(t = 10, r = 10, b = 10, l = 10)
+) 
+
+
+# -----------------------------------
+# ------ PM 2.5 SOURCES----- 
+# -----------------------------------
+
+# --- POINT SOURCES -----
+
+# bring in data and clean names
+point_sources <- read.csv(here("portfolio/pm2_5_la/data/sources/facility_point_sources_2020.csv")) %>% 
+  clean_names()
+
+# filter for 2.5 and make emissions numeric
+point_sources <- point_sources %>% 
+  filter(pollutant %in% c("PM2.5 Primary (Filt + Cond)", "PM2.5 Filterable")) %>%
+  mutate(emissions_tons = as.numeric(emissions_tons))
+
+# EXPLORE TOP EMITTERS ---
+
+# Top 50 emitters
+top_50_point_sources <- point_sources %>% 
+  slice_max(order_by = emissions_tons, n = 50)
+
+
+# Major emitters (100+ tons)
+major_point_sources <- point_sources %>% 
+  filter(emissions_tons >= 100)
+
+
+# --- NONPOINT SOURCES -----
+
+# bring in data and clean names
+
+nonpoint_sources <- read.csv(here("portfolio/pm2_5_la/data/sources/nonpoint_sources_2020.csv")) %>% 
+  clean_names()
+
+# filter for 2.5 and make emissions numeric
+nonpoint_sources <- nonpoint_sources %>% 
+  filter(pollutant %in% c("PM2.5 Primary (Filt + Cond)", "PM2.5 Filterable")) %>% 
+  mutate(emissions_tons = as.numeric(emissions_tons)) %>% 
+  drop_na()
+
+# EXPLORE TOP EMITTERS ---
+
+# Top 50 emitters for nonpoint sources
+top_50_nonpoint_sources <- nonpoint_sources %>% 
+   slice_max(order_by = emissions_tons, n = 50)
+
+# Major emitters for nonpoint sources
+major_nonpoint_sources <- nonpoint_sources %>% 
+  filter(emissions_tons >= 100)
+
+# COMBINE SOURCES --  
+combined_sources <- bind_rows(
+  nonpoint_sources %>% 
+    mutate(source_type = "nonpoint", # add a new column 'source_type' with the variable "nonpoint" for each row
+           pollution_source = eis_sector, # set'pollution_source' column to be equal to the 'eis_sector' column
+           # Add empty columns for point-source-specific fields: 
+           site_name = NA,
+           eis_facility_id = NA,
+           facility_type = NA,
+           street_address = NA,
+           naics = NA,
+           lat_lon = NA,
+           longitude = NA,
+           latitude = NA),
+  
+  point_sources %>% 
+    mutate(source_type = "point",
+           pollution_source = facility_type,  #use facility_type  " "
+           # Add empty columns for nonpoint-source-specific fields:
+           scc_code = NA,
+           eis_sector = NA,
+           source_description = NA,
+           scc_level_1 = NA,
+           scc_level_2 = NA,
+           scc_level_3 = NA,
+           scc_level_4 = NA)
+)
+
+# WRANGLE ---
+combined_sources <- combined_sources %>% 
+  select(state_county, 
+         pollutant,
+         emissions_tons,
+         source_type,
+         pollution_source)
+
+# EXPLORE COMBINED TOP EMITTERS ----
+
+# Top 50 emitters for all sources
+top_50_sources <- combined_sources %>% 
+   slice_max(order_by = emissions_tons, n = 50)
+
+# Major emitters for all sources (greater than 100 tons)
+major_sources <- combined_sources %>% 
+  filter(emissions_tons >= 100)
+
+# top 10 
+top_10_sources <- top_50_sources %>% 
+  group_by(pollution_source, source_type) %>% 
+  summarise(total_emissions = sum(emissions_tons, na.rm = TRUE)) %>% 
+  # summarizes each group by calculating the total emissions for each 'pollution_source' and 'source_type'
+  ungroup() %>% 
+  slice_max(order_by = total_emissions, n = 10) %>% # top 10 based on total emissions
+  mutate(pollution_source = recode(pollution_source, # rename variables
+  "Industrial Processes - Not Elsewhere Classified" = "Other Industrial Processes",
+  "Fuel Comb - Residential - Wood" = "Residential Wood Combustion",
+  "Mobile - On-Road non-Diesel Light Duty Vehicles" = "Light Duty Vehicles",
+  "Dust - Construction Dust" = "Construction Dust",
+  "Waste Disposal" = "Waste Disposal",
+  "Petroleum Refinery" = "Petroleum Refineries",
+  "Fires - Wildfires" = "Wildfires",
+  "Fuel Comb - Residential - Natural Gas" = "Residential Natural Gas Combustion",
+  "Miscellaneous Non-Industrial Not Elsewhere Classified" = "Other Non-Industrial",
+  "Dust - Unpaved Road Dust" = "Unpaved Road Dust"
+))
+
+# PLOT: 
+
+#subtitle: 
+subtitle <- glue::glue("
+  <span style='color:#DF674F;'>**Point sources**</span> represent single, identifiable locations of emission, while <br> <span style='color:#DE8635;'>**non-point sources**</span> encompass diffuse, widespread pollution origins across the region."
+)
+
+
+# PLOT IT ---
+top_sources <- ggplot(top_10_sources, 
+       aes(x = fct_reorder(pollution_source, total_emissions),  
+           y = total_emissions,  
+           fill = source_type)) + 
+       
+  geom_col() +  
+  
+  # Adding a horizontal line at y = 100 to highlight major source threshold
+  geom_hline(yintercept = 100, linetype = "dashed", color = "black") +  
+  
+    # Adding a horizontal line at y = 1000 for easier intrepretation
+  geom_hline(yintercept = 1000, linetype = "dashed", color = "grey90") +  
+  
+    # Adding a horizontal line at y = 2000
+  geom_hline(yintercept = 2000, linetype = "dashed", color = "grey90") +  
+  
+    # Adding a horizontal line at y = 3000
+  geom_hline(yintercept = 3000, linetype = "dashed", color = "grey90") + 
+  
+# ADD ANNOTATIONS --
+
+annotate(
+  geom = "text",
+  x = 3,
+  y = 1030,
+  label = str_wrap("The EPA defines 100 tons as the threshold for a major source of pollution", width = 25),
+  size = 3,
+  color = "black",
+  hjust = 0
+) +
+# arrow
+  annotate(
+    geom = "curve",
+    x = 3, xend = 5,   # Closer to the line horizontally
+    y = 1010, yend = 145,  # Lower the arrow to be closer to the threshold line
+    curvature = -0.1,  # Slight curve
+    arrow = arrow(length = unit(0.3, "cm"))
+  ) +
+
+  # Wrapping x-axis labels to 25 characters 
+  scale_x_discrete(labels = function(x) str_wrap(x, width = 25)) +  
+  
+ 
+  coord_flip() +  
+  
+  scale_fill_manual(values = smog_sub_pal) + 
+  
+  # Format y-axis labels to include "tons"
+  scale_y_continuous(labels = function(x) paste0(x, " tons")) +  # Adding "tons" to y-axis labels
+  
+  
+# LABS---
+  labs(
+    title = "Top 10 Sources of PM2.5 Pollution in Los Angeles", 
+    subtitle = subtitle,  
+    caption = "Data source: EPA (2020)"
+  ) +
+  
+  theme_minimal() +
+  
+# CUSTOMIZE THEME ---
+  theme(
+    axis.title = element_blank(),  # Removing axis titles (x and y)
+    panel.grid = element_blank(), # remove grid panels
+    
+    plot.title.position = "plot",  # Shifting the title to the left
+    
+    # customize plot title text
+    plot.title = element_text(family = "mont",  
+                              face = "bold", 
+                              size = 18,  
+                              color = "black"), 
+    
+    # customize subtitle text
+    plot.subtitle = ggtext::element_textbox(family = "open_sans",  
+                                           size = 11.5,  
+                                           color = "black", 
+                                           margin = margin(t = 2, r = 0, b = 6, l = 0)),  
+    
+    # customize caption text
+    plot.caption = ggtext::element_textbox(family = "open_sans",
+                                           face = "italic",  
+                                           color = "black",  
+                                           margin = margin(t = 15, r = 0, b = 0, l = 0)), 
+    
+    # Adjusting plot margins for overall spacing
+    plot.margin = margin(t = 10, r = 10, b = 10, l = 10), 
+    
+    # Customizing legend  - plot.legend isnt working
+    legend.position = "none",  
+)
+
+# -----------------------------------
+# -------POLLUTION OVER TIME -------
+# -----------------------------------
+# read in data and clean names
+PM2_5_df <- read.csv(here("portfolio/pm2_5_la/data/pm_annual.csv")) %>% 
+  clean_names()
+
+# TIDY --  
+
+PM2_5 <- PM2_5_df %>%
+# transform date from a character to a date
+  mutate(date = mdy(date)) %>%
+  # create new columns for month, day, and year using lubridate
+  mutate(
+    month = month(date),  
+    day   = day(date),    
+    year  = year(date)    
+  ) %>%
+  # select only needed columns
+  select(daily_mean_pm2_5_concentration, units, year, month) 
+
+# -------- F I N D   A N N U A L  M E A N --------  
+  annual_PM2_5 <- PM2_5  %>%  
+  group_by(year) %>%
+    summarize(
+      units = first(units),
+      yearly_mean_pm2_5 = mean(daily_mean_pm2_5_concentration, na.rm = TRUE),
+      .groups = "drop"
+    )
+# Filter data for PM2.5 after 2010
+filtered_pm <- annual_PM2_5 %>%
+  filter(year >= 2010)
+
+# Create the plot
+pm_trend <- ggplot(filtered_pm, aes(x = year, y = yearly_mean_pm2_5)) +
+  geom_line() + 
+  geom_point(color = "black", size = 3) + 
+  
+# ANNOTATIONS --   
+  # Red point for 2020 to show anomoly
+  geom_point(data = filtered_pm %>% filter(year == 2020), color = "#DF674F", size = 3) + 
+  
+  # Bobcat Fire 2020
+  annotate(
+    geom = "text",
+    x = 2023.65,
+    y = 13.65,
+    label = "PM 2.5 levels spike during \nwildfire events like the \n2020 Bobcat Fire",
+    size = 3,
+    color = "black",
+    hjust = "inward",
+    family = "open_sans"
+  ) +
+  
+  # add arrow
+  annotate(
+    geom = "segment",
+    x = 2020.15, xend = 2020.65,
+    y = 13.55, yend = 13.75,
+  ) +
+  
+# LABS --  
+  labs(
+    title = "Los Angeles Air Quality Trends (2000–2024)",
+    subtitle = "Although PM 2.5 pollution has steadily declined, it remains above 9 µg/m³, \nkeeping LA in the moderate pollution category.",
+    caption = "Data source: EPA (2025)",
+    y = "Mean PM2.5 (µg/m³)"
+  ) + 
+  
+# edit the x axis to show 2010 - 2024
+  scale_x_continuous(
+    limits = c(2010, 2024),
+    breaks = c(seq(2010, 2024, by = 5), 2024) # show breaks every 5 years but also show 2024 
+  ) + 
+  
+  theme_minimal() + # minimal theme
+  
+# CUSTOMIZE THEME --
+  theme(
+    
+    plot.title.position = "plot", # plot title to the left
+    # customize plot title text
+    plot.title = element_text(
+      family = "mont",
+      face = "bold",
+      size = 18,
+      color = "black"
+    ),
+     # customize subtitle text
+    plot.subtitle = element_text(
+      family = "open_sans",
+      size = 11.5,
+      color = "black",
+      margin = margin(t = 2, r = 0, b = 6, l = 0)
+    ),
+    # customize caption text
+    plot.caption = element_text(
+      family = "open_sans",
+      face = "italic",
+      color = "black",
+      margin = margin(t = 15, r = 0, b = 0, l = 0)),
+    
+    # minimal grid panels - want to have some reference but not too bold
+    panel.grid.minor.y = element_blank(),
+    panel.grid.major.x = element_blank(),
+    
+    # customize axis titles
+    axis.title.y = element_text(family = "open_sans"), # change y axis font
+    axis.title.x = element_blank(),   # Remove x axis title
+    
+    # Customizing legend  - plot.legend isnt working
+    legend.position = "none",  
+    
+    # update margin
+    plot.margin = margin(t = 10, r = 10, b = 10, l = 10)
+  ) 
+
+
+
+```

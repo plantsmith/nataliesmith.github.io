@@ -1,11 +1,45 @@
 ---
-title: "nataliesmith.github.io"
+# title: "Natalie Smith"
+image: headshot.jpeg
+toc: false
+about: 
+  template: trestles
+  image-shape: rectangle
+  image-width: 30em
+  links:
+    - icon: linkedin 
+      text: LinkedIn
+      href: https://www.linkedin.com/in/natsmith/
+    - icon: github
+      text: GitHub
+      href: https://github.com/plantsmith
+    - icon: envelope
+      text: Email
+      href: mailto:nasmith@bren.ucsb.edu
 ---
 
-This is a Quarto website.
+## About me
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+**Hi, I’m Natalie.**
 
-```{r}
-1 + 1
-```
+I’m a scientist, communicator, musician, and crafter – usually daydreaming about climate solutions, native plants, and ways to make the [world a little greener]{style="color:#A8A36C;"}. <img src="images/leaf.png" alt="leaf icon" width="20" height="20"/>
+
+I've compiled some of my recent work here. Feel free to explore and get in touch!
+
+## Project Highlights
+
+[Evaluating Ecological Conservation Gaps Across a Proposed Sentinel Landscape](https://bren.ucsb.edu/projects/evaluating-ecological-conservation-gaps-across-proposed-sentinel-landscape) (Connectivity)
+
+[Wildlife Connectivity Across The Central California Coast](https://drive.google.com/file/d/1eSYR-kp22O2YcczbmT2_72o_JYBGjZNl/view?usp=sharing)
+
+[Mapping Heat-Risk Inequalities in Los Angeles County](https://plantsmith.shinyapps.io/heat_risk_inequality/)
+
+## Professional Interests
+
+Climate Adaptation \| Urban Biodiversity \| Connectivity \| Environmental Justice \| Nature Based Solutions \| Sustainability \| Built Ecology \| California Native Plants
+
+## Skill Sets
+
+Ecology \| Data Science \| GIS \| R Programming Language \| Excel \| Project Management \| Stakeholder Engagement
+
+## 
