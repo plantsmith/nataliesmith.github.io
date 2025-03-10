@@ -1,0 +1,21 @@
+---
+title: "Music"
+---
+
+::::: grid
+::: g-col-4
+![Natalie + Eric = Cape Weather](images/corkboard.JPG){fig-align="left" width="300"}
+:::
+
+::: g-col-8
+Before shifting into environmental work, I spent over five years as a professional musician—writing, performing, and teaching to diverse audiences. As part of the band **Cape Weather**, I've released 6+ EPs, including the critically acclaimed single Telephono, earning over 3 million [Spotify](https://open.spotify.com/artist/7J1pOyIKObwsdVRzu4scnI?si=i1E1_BAdS5aBzhBx8xqcDg) streams and placements in film and TV. Our music has been featured on NPR and KCRW, and I collaborated on visually striking [music videos](https://www.youtube.com/watch?v=67ifaPm2OCE&list=PLxQOolG5C6cHGcbgSbTJjAV-c7ipobiw1) to bring our songs to life. Beyond Cape Weather, I’ve performed at 100+ corporate and private events and provided background vocals for artists like Ben Folds.
+
+🎶 *Check out the playlist and video below!*
+:::
+:::::
+
+
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/2gvE7EGM9tNwoA9wFDq2DJ?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+
+{{< video https://www.youtube.com/watch?v=67ifaPm2OCE&list=PLxQOolG5C6cHGcbgSbTJjAV-c7ipobiw1&index=1>}}
