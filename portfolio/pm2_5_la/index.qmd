@@ -92,7 +92,9 @@ smog_pal2 <- c("#79AAB6",
 
 
 # option 3
-smog_sub_pal <- smog_pal2[c(4,5)]
+smog_sub_pal <- smog_pal[c(4,2)]
+
+
 
 
 
@@ -346,7 +348,7 @@ top_10_sources <- top_50_sources %>%
 
 #subtitle: 
 subtitle <- glue::glue("
-  <span style='color:#DF674F;'>**Point sources**</span> represent single, identifiable locations of emission, while <br> <span style='color:#DE8635;'>**non-point sources**</span> encompass diffuse, widespread pollution origins across the region."
+  <span style='color:#B0C7C1;'>**Point sources**</span> represent single, identifiable locations of emission, while <br> <span style='color:#CC7E62;'>**non-point sources**</span> encompass diffuse, widespread pollution origins across the region."
 )
 
 
@@ -444,6 +446,8 @@ annotate(
 )
 
 top_sources
+
+ggsave("top_sources.pdf", plot = top_sources, width = 8, height = 6, dpi = 300)
 
 ```
 
