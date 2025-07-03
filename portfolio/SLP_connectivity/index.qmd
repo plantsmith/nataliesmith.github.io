@@ -1,0 +1,62 @@
+---
+title: "Evaluating Ecological Conservation Gaps Across a Proposed Sentinel Landscape"
+description: "Developing conservation strategies by modeling multispecies connectivity across California’s Central Coast"
+author: "Thuy-Tien Bui, Madison Calbert, Andrew Palacios, Natalie Smith, and Priscilla Ta"
+date: 03-15-2025
+categories: [Conservation Planning, Data Science, GIS, Strategic Communication]
+format:
+  html:
+    code-fold: true
+execute:
+  echo: true
+  message: false
+  warning: false
+draft: false # "true" will mean this is a draft post so it wont show up on my site
+freeze: true
+---
+
+# Introduction
+
+This work was completed as part of my Master’s Group Project at the Bren School of Environmental Science & Management, spanning from April 2024 to April 2025. Our team included Thuy-Tien Bui, Madison Calbert, Andrew Palacios, Priscilla Ta, and myself. We were advised by Dr. Ruth Oliver, and our client was Bill Lehey of LegacyWorks Group.
+
+Check out the final report and additional information about the project [here](https://bren.ucsb.edu/projects/evaluating-ecological-conservation-gaps-across-proposed-sentinel-landscape).
+
+A video of our final presentation can be found [here](https://www.youtube.com/watch?v=wtjMPZB60Nc) (skip to 3:27:00).
+
+![](SLP.png)
+
+# Background
+
+Our Master’s Group Project supported the proposed designation of a Vandenberg Sentinel Landscape (VSL) by identifying conservation priorities, implementation barriers, and opportunities for collaboration across California’s Southern Central Coast. We began by interviewing 19 partners to understand their goals and challenges, revealing that biodiversity preservation—including wildlife connectivity and Southern Steelhead recovery—was the region’s top priority. To support these efforts, we conducted a habitat suitability analysis for steelhead and a multispecies connectivity analysis to pinpoint critical conservation areas and movement barriers. Our findings highlighted gaps in monitoring, coordination, and land use compatibility, underscoring the need for expanded partnerships and resource sharing. This work laid the foundation for the VSL designation application and catalyzed the formation of the Vandenberg-Gaviota Landscape Partnership—an important step toward bridging the planning-implementation gap and advancing long-term ecological resilience in the region.
+
+```{=html}
+<div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 1em;">
+
+  <div style="flex: 1; min-width: 360px; max-width: 500px;">
+    <img src="boundary.png" alt="Proposed VSL Boundary" style="width: 100%; height: auto;"/>
+  </div>
+
+  <div style="flex: 1; min-width: 360px; max-width: 500px;">
+    <img src="barriers.png" alt="Top-Percentile Barriers Under Multiple Threats" style="width: 100%; height: auto;"/>
+  </div>
+
+</div>
+
+<p style="text-align: center; font-size: 0.95em; margin-top: 12px; max-width: 1000px; margin-left: auto; margin-right: auto;">
+  <strong>Left:</strong> The designation boundary is anchored by Vandenberg Space Force Base, outlined in red, and features federal and state public lands and protected areas.  
+  <strong>Right:</strong> Example output from the connectivity analysis.The 20 identified barriers differ in majority land ownership types and presence of critical habitat. Publicly owned areas with critical habitat are located within VSFB (polygon 11).
+</p>
+```
+
+
+
+
+
+
+
+
+# My Contributions
+
+As Project Manager, I oversaw all aspects of the project to ensure alignment with our client’s goal of applying for designation through the USDA’s Sentinel Landscape Partnership. I managed project timelines, facilitated meetings with clients and advisors, and coordinated collaboration across our five-person team to ensure timely, high-quality deliverables.
+
+In addition to my project management responsibilities, I led the design and execution of interviews with 19 regional partners to identify shared conservation priorities and implementation barriers, and contributed to the analysis of qualitative findings. I also played a key role in the habitat connectivity analysis, using Maxent and Circuitscape to model multispecies movement and identify priority areas for corridor protection, restoration, and barrier mitigation. Additionally, I contributed to creating visualizations, writing report sections, and reviewing project materials to ensure clarity, consistency, and scientific accuracy.

@@ -1,0 +1,216 @@
+---
+title: "Data Visualizations"
+description: "Collection of data visualizations I have created for various projects"
+author: "Natalie Smith"
+categories: [Data Science, Strategic Communication]
+image: LA_air.png
+format:
+  html:
+    code-fold: true
+execute:
+  echo: true
+  message: false
+  warning: false
+draft: false # "true" will mean this is a draft post so it wont show up on my site
+freeze: true
+---
+
+## LA Air Pollution
+
+```{=html}
+<!-- Styles -->
+<style>
+.carousel-container {
+  max-width: 700px;
+  margin: auto;
+  position: relative;
+}
+.carousel-slide {
+  display: none;
+  width: 100%;
+}
+.carousel-slide.active {
+  display: block;
+}
+.carousel-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+.carousel-buttons button {
+  padding: 6px 12px;
+  font-size: 14px;
+  border: 2px solid black;
+  background: white;
+  cursor: pointer;
+}
+</style>
+```
+
+```{=html}
+<div class="carousel-container">
+  <div id="LAairCarousel">
+    <img src="viz/LA_air.png" class="carousel-slide active"/>
+    <img src="viz/LA_air1.png" class="carousel-slide"/>
+    <img src="viz/LA_air2.png" class="carousel-slide"/>
+    <img src="viz/LA_air3.png" class="carousel-slide"/>
+  </div>
+
+  <div class="carousel-buttons">
+    <button onclick="prevLAairSlide()">Previous</button>
+    <button onclick="nextLAairSlide()">Next</button>
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  let currentLAairSlide = 0;  // 
+  const LAairSlides = document.querySelectorAll('#LAairCarousel .carousel-slide');  // 
+
+  function showLAairSlide(index) {
+    LAairSlides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === index);
+    });
+  }
+
+  window.nextLAairSlide = function () {
+    currentLAairSlide = (currentLAairSlide + 1) % LAairSlides.length;
+    showLAairSlide(currentLAairSlide);
+  }
+
+  window.prevLAairSlide = function () {
+    currentLAairSlide = (currentLAairSlide - 1 + LAairSlides.length) % LAairSlides.length;
+    showLAairSlide(currentLAairSlide);
+  }
+
+  showLAairSlide(currentLAairSlide);  // ✅ Initialize
+});
+</script>
+```
+
+## Fish Passage
+
+```{=html}
+<div class="carousel-container">
+  <div id="fishCarousel">
+    <img src="viz/fish_passage.png" class="carousel-slide active"/>
+    <img src="viz/fish_passage1.png" class="carousel-slide"/>
+    <img src="viz/fish_passage2.png" class="carousel-slide"/>
+  </div>
+
+  <div class="carousel-buttons">
+    <button onclick="prevFishSlide()">Previous</button>
+    <button onclick="nextFishSlide()">Next</button>
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  let currentFishSlide = 0;
+  const fishSlides = document.querySelectorAll('#fishCarousel .carousel-slide');
+
+  function showFishSlide(index) {
+    fishSlides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === index);
+    });
+  }
+
+  window.nextFishSlide = function () {
+    currentFishSlide = (currentFishSlide + 1) % fishSlides.length;
+    showFishSlide(currentFishSlide);
+  }
+
+  window.prevFishSlide = function () {
+    currentFishSlide = (currentFishSlide - 1 + fishSlides.length) % fishSlides.length;
+    showFishSlide(currentFishSlide);
+  }
+
+  showFishSlide(currentFishSlide);
+});
+</script>
+```
+
+## Green Investing
+
+```{=html}
+<div class="carousel-container">
+  <div id="investingCarousel">
+    <img src="viz/investing.png" class="carousel-slide active"/>
+    <img src="viz/investing1.png" class="carousel-slide"/>
+    <img src="viz/investing2.png" class="carousel-slide"/>
+  </div>
+
+  <div class="carousel-buttons">
+    <button onclick="prevInvestingSlide()">Previous</button>
+    <button onclick="nextInvestingSlide()">Next</button>
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  let currentInvestingSlide = 0;
+  const investingSlides = document.querySelectorAll('#investingCarousel .carousel-slide');
+
+  function showInvestingSlide(index) {
+    investingSlides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === index);
+    });
+  }
+
+  window.nextInvestingSlide = function () {
+    currentInvestingSlide = (currentInvestingSlide + 1) % investingSlides.length;
+    showInvestingSlide(currentInvestingSlide);
+  }
+
+  window.prevInvestingSlide = function () {
+    currentInvestingSlide = (currentInvestingSlide - 1 + investingSlides.length) % investingSlides.length;
+    showInvestingSlide(currentInvestingSlide);
+  }
+
+  showInvestingSlide(currentInvestingSlide);
+});
+</script>
+```
+
+## More Favorites
+
+```{=html}
+<div class="carousel-container">
+  <div id="miscCarousel">
+    <!-- ✅ Replace these with your actual image paths -->
+    <img src="viz/misc1.png" class="carousel-slide active"/>
+    <img src="viz/misc2.png" class="carousel-slide"/>
+  </div>
+
+  <div class="carousel-buttons">
+    <button onclick="prevMiscSlide()">Previous</button>
+    <button onclick="nextMiscSlide()">Next</button>
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  let currentMiscSlide = 0;
+  const miscSlides = document.querySelectorAll('#miscCarousel .carousel-slide');
+
+  function showMiscSlide(index) {
+    miscSlides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === index);
+    });
+  }
+
+  window.nextMiscSlide = function () {
+    currentMiscSlide = (currentMiscSlide + 1) % miscSlides.length;
+    showMiscSlide(currentMiscSlide);
+  }
+
+  window.prevMiscSlide = function () {
+    currentMiscSlide = (currentMiscSlide - 1 + miscSlides.length) % miscSlides.length;
+    showMiscSlide(currentMiscSlide);
+  }
+
+  showMiscSlide(currentMiscSlide);
+});
+</script>
+```
