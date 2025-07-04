@@ -318,6 +318,8 @@ document.addEventListener("DOMContentLoaded", function () {
     <!-- ✅ Replace these with your actual image paths -->
     <img src="viz/misc1.png" class="carousel-slide active">
     <img src="viz/misc2.png" class="carousel-slide">
+    <img src="viz/misc3.png" class="carousel-slide">
+    <img src="viz/misc4.png" class="carousel-slide">
   </div>
 
   <div class="carousel-buttons">
@@ -447,7 +449,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/plantsmith\.quarto\.pub\/natalie-smith");
+      var filterRegex = new RegExp('/' + window.location.host + '/');
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }

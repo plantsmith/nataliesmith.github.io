@@ -29,5 +29,3 @@ I've compiled some of my [recent work here](https://plantsmith.quarto.pub/natali
 ## Highlighted Skills
 
 Data Science \| GIS \| R Programming Language \| Conservation Planning \| Strategic Communication
-
-## 

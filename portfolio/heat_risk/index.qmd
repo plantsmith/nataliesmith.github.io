@@ -2,7 +2,7 @@
 title: "Mapping Urban Heat Risk Inequality in Los Angeles"
 description: "An interactive app that explores how historical redlining is related to modern-day urban health inequalities and environmental injustices"
 author: "Natalie Smith & Olivia Hemond"
-date: 4-21-2024
+date: 12-03-2024
 categories: [Data Science, Strategic Communication]
 image: LA_skyline.jpg
 format:

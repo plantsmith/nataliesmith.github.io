@@ -181,6 +181,8 @@ document.addEventListener("DOMContentLoaded", function () {
     <!-- ✅ Replace these with your actual image paths -->
     <img src="viz/misc1.png" class="carousel-slide active"/>
     <img src="viz/misc2.png" class="carousel-slide"/>
+    <img src="viz/misc3.png" class="carousel-slide"/>
+    <img src="viz/misc4.png" class="carousel-slide"/>
   </div>
 
   <div class="carousel-buttons">

@@ -141,9 +141,6 @@ ul.task-list li input[type="checkbox"] {
 <section id="highlighted-skills" class="level2">
 <h2 data-anchor-id="highlighted-skills">Highlighted Skills</h2>
 <p>Data Science | GIS | R Programming Language | Conservation Planning | Strategic Communication</p>
-</section>
-<section id="section" class="level2">
-<h2 data-anchor-id="section"></h2>
 
 
 </section>
@@ -235,7 +232,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/plantsmith\.quarto\.pub\/natalie-smith");
+      var filterRegex = new RegExp('/' + window.location.host + '/');
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
